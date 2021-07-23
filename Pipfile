@@ -9,6 +9,7 @@ psycopg2-binary = "*"
 autopep8 = "*"
 djangorestframework = "*"
 pylint = "*"
+pyjwt = "*"
 
 [dev-packages]
 
