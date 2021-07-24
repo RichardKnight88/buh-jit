@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import axios from 'axios'
-import Navbar from './components/Navbar'
+import NavbarComponent from './components/Navbar'
 
 const App = () => {
 
@@ -17,7 +16,7 @@ const App = () => {
   return (
     <>
 
-      <Navbar />
+      <NavbarComponent />
 
       <BrowserRouter>
 
