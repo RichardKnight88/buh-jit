@@ -42,7 +42,7 @@ class ContactsIndividualView(APIView):
         
         contact_to_edit = self.get_contact(pk=pk)
         changes_to_add = request.data
-        serialized_updated_contact = ContactsSerializer(contact_to_edit, data=changes_to_add)
+        serialized_updated_contact = ContactsSerializer(contact_to_edit, data=changes_to_add, partial=True)
 
         if contact_to_edit.owner != request.user:
             raise PermissionDenied()
