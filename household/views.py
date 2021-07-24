@@ -6,6 +6,7 @@ from django.conf import settings
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Household
+from household.serializers.common import HouseholdSerializer
 from household.serializers.populated import PopulatedHouseholdSerializer
 
 
@@ -15,7 +16,9 @@ class HouseholdListView(APIView):
 
     def post(self, request):
         request.data["created_by"] = request.user.id
-        household_to_create = PopulatedHouseholdSerializer(data=request.data)
+        request.data["members"] = []
+        request.data["transactions"] = []
+        household_to_create = HouseholdSerializer(data=request.data)
         if household_to_create.is_valid():
             household_to_create.save()
             return Response(household_to_create.data, status=status.HTTP_201_CREATED)

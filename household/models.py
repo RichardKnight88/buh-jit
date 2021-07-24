@@ -14,3 +14,6 @@ class Household(models.Model):
         related_name="created_households",
         on_delete = models.DO_NOTHING,
     )
+
+    def __str__(self):
+        return self.household_name

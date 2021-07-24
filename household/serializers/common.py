@@ -4,4 +4,4 @@ from ..models import Household
 class HouseholdSerializer(serializers.ModelSerializer):
     class Meta:
         model = Household
-        fields = '__all__'
+        fields = ('household_name', 'balance', 'created_by', 'members')
