@@ -57,3 +57,12 @@ class HouseholdIndividualView(APIView):
             return Response(serialized_updated_household.data, status=status.HTTP_202_ACCEPTED)
         
         return Response(serialized_updated_household.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+    def delete(self, request, pk):
+        household_to_delete = self.get_household(pk=pk)
+
+        if household_to_delete.created_by != request.user:
+            raise PermissionDenied()
+        
+        household_to_delete.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
