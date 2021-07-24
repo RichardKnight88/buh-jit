@@ -21,4 +21,5 @@ urlpatterns = [
     path('auth/', include('jwt_auth.urls')),
     path('transactions/', include('transactions.urls')),
     path('household/', include('household.urls')),
+    path('contacts/', include('regular_contacts.urls'))
 ]

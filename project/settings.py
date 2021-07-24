@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'jwt_auth',
     'transactions',
     'household',
+    'regular_contacts',
 ]
 
 MIDDLEWARE = [
