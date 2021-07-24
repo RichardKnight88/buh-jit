@@ -16,7 +16,7 @@ User = get_user_model()
 
 
 class RegisterView(APIView):
-  
+
     def post(self, request):
         user_to_register = UserSerializer(data=request.data)
 
@@ -27,7 +27,7 @@ class RegisterView(APIView):
 
 
 class LoginView(APIView):
-  
+
     def post(self, request):
 
         email = request.data.get('email')
@@ -43,8 +43,8 @@ class LoginView(APIView):
         dt = datetime.now() + timedelta(days=3)
         token = jwt.encode(
             {
-              'sub': user_to_login.id,
-              'exp': int(dt.strftime('%s')),
+                'sub': user_to_login.id,
+                'exp': int(dt.strftime('%s')),
             },
             settings.SECRET_KEY,
             algorithm='HS256'
@@ -58,12 +58,12 @@ class UserView(APIView):
 
     def get(self, request):
 
-      header = request.headers.get('Authorization')
-      token = header.replace('Bearer ', '')
-      payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
-      user_username = User.objects.get(pk=payload.get('sub'))
+        header = request.headers.get('Authorization')
+        token = header.replace('Bearer ', '')
+        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
+        user_username = User.objects.get(pk=payload.get('sub'))
 
-      user_to_display = User.objects.get(username=user_username)
-      serialized_user = PopulatedUserSerializer(user_to_display)
-      return Response(serialized_user.data, status=status.HTTP_200_OK)
+        user_to_display = User.objects.get(username=user_username)
+        serialized_user = PopulatedUserSerializer(user_to_display)
+        return Response(serialized_user.data, status=status.HTTP_200_OK)
 

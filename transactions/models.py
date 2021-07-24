@@ -17,3 +17,10 @@ class Transaction(models.Model):
         related_name="transactions",
         on_delete = models.CASCADE,
     )
+    households = models.ForeignKey(
+        "household.Household",
+        related_name="transactions",
+        on_delete = models.DO_NOTHING,
+        # null=True,
+        blank=True,
+    )

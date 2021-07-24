@@ -1,0 +1,7 @@
+from jwt_auth.serializers.common import UserSerializer
+from transactions.serializers.common import TransactionSerializer
+from .common import HouseholdSerializer
+
+class PopulatedHouseholdSerializer(HouseholdSerializer):
+    transactions = TransactionSerializer(many=True)
+    members = UserSerializer(many=True)
