@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Form, Button } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 
 
 
@@ -14,6 +14,7 @@ const LoginForm = () => {
   })
 
   const history = useHistory()
+  const location = useLocation()
 
   const handleChange = async (event) => {
     console.log('EVENT', event.target.name, 'VALUE', event.target.value)
@@ -22,6 +23,7 @@ const LoginForm = () => {
 
   }
 
+  console.log('LOCATION', location)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -30,9 +32,11 @@ const LoginForm = () => {
       const { data } = await axios.post('/api/auth/login/', formData )
       // console.log('DATA', data)
 
-      setTokenToLocalStorage(data.token)
+      setTokenToLocalStorage(data.token, data.username)
 
       history.push('/profile')
+
+      console.log(data)
 
     } catch (err) {
       console.log(err.response.statusText)
@@ -41,8 +45,9 @@ const LoginForm = () => {
   }
 
 
-  const setTokenToLocalStorage = (token) => {
+  const setTokenToLocalStorage = (token, username) => {
     window.localStorage.setItem('token', token)
+    window.localStorage.setItem('username', username)
   }
 
 
