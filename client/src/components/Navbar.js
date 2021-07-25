@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
 import { primaryColor } from '../styles/elementStyles'
 import LoginToast from './auth/helpers/loginToast'
@@ -6,6 +7,13 @@ import LoginToast from './auth/helpers/loginToast'
 
 const NavbarComponent = () => {
 
+
+  const history = useHistory()
+
+  console.log(history)
+  console.log(useHistory())
+
+  // history.push('/hello')
 
   return (
     <Navbar variant="dark" expand="lg" style={{
@@ -19,7 +27,7 @@ const NavbarComponent = () => {
           aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <LoginToast />
+            <LoginToast history={history}/>
             <Nav.Link href="#link">Link</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Login / Register</NavDropdown.Item>

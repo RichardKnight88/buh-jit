@@ -1,8 +1,9 @@
 import React from 'react'
 import { OverlayTrigger, Popover, Nav } from 'react-bootstrap'
+import LoginForm from './loginForm'
 
 
-const LoginToast = () => {
+const LoginToast = (history) => {
 
 
 
@@ -14,7 +15,7 @@ const LoginToast = () => {
         overlay={<Popover id="popover-basic" >
           <Popover.Header as="h3">Login</Popover.Header>
           <Popover.Body>
-            HELLO
+            <LoginForm history={history}/>
           </Popover.Body>
         </Popover >}
       >
@@ -24,7 +25,7 @@ const LoginToast = () => {
             color: '#fff',
             cursor: 'pointer',
           }}
-        >LOGIN / REGISTER</Nav.Item>
+        >LOGIN</Nav.Item>
       </OverlayTrigger>
 
     </>

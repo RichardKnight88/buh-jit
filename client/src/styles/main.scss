@@ -5,6 +5,9 @@ body {
   background-color: gray;
 }
 
+.navbar-nav {
+  align-items: center
+}
 
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {

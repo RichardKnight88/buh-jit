@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import NavbarComponent from './components/Navbar'
+import Profile from './components/auth/Profile'
 
 const App = () => {
 
@@ -16,11 +17,18 @@ const App = () => {
   return (
     <>
 
-      <NavbarComponent />
 
       <BrowserRouter>
 
+        <NavbarComponent />
+
+        
         <Switch>
+
+
+          <Route path='/profile'>
+            <Profile />
+          </Route>
 
 
           <Route path='/'>
