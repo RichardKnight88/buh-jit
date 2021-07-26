@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Form, Button } from 'react-bootstrap'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+// import { handleChange } from './formFunctions'
 
 
 
@@ -14,16 +15,16 @@ const LoginForm = () => {
   })
 
   const history = useHistory()
-  const location = useLocation()
+  // const location = useLocation()
 
   const handleChange = async (event) => {
-    console.log('EVENT', event.target.name, 'VALUE', event.target.value)
+    // console.log('EVENT', event.target.name, 'VALUE', event.target.value)
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     setFormData(newFormData)
 
   }
 
-  console.log('LOCATION', location)
+  // console.log('LOCATION', location)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -78,7 +79,7 @@ const LoginForm = () => {
       </Form.Group>
       <div className="d-grid gap-2">
         <Button variant="outline-primary" type="submit">
-          Submit
+          Login
         </Button>
       </div>
     </Form>

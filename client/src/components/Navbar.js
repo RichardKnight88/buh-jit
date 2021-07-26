@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
 import { primaryColor } from '../styles/elementStyles'
 import LoginToast from './auth/helpers/loginToast'
 import { getPayload, getUsernameFromLocalStorage } from './auth/helpers/tokenfunctions'
-import axios from 'axios'
+// import axios from 'axios'
 
 
 const NavbarComponent = () => {

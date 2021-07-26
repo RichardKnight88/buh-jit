@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import NavbarComponent from './components/Navbar'
 import Profile from './components/auth/Profile'
+import Register from './components/auth/Register'
 
 const App = () => {
 
@@ -24,6 +25,11 @@ const App = () => {
 
         
         <Switch>
+
+
+          <Route path='/register'>
+            <Register />
+          </Route>
 
 
           <Route path='/profile'>
