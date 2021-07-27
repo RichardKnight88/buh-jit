@@ -3,6 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import NavbarComponent from './components/Navbar'
 import Profile from './components/auth/Profile'
 import Register from './components/auth/Register'
+import Dashboard from './components/Dashboard'
+import TransactionForm from './components/TransactionForm'
 
 const App = () => {
 
@@ -26,6 +28,14 @@ const App = () => {
         
         <Switch>
 
+
+          <Route path='/dashboard'>
+            <Dashboard />
+          </Route>
+
+          <Route path='/transaction'>
+            <TransactionForm />
+          </Route>
 
           <Route path='/register'>
             <Register />

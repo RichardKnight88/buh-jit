@@ -9,6 +9,16 @@ body {
   align-items: center
 }
 
+.formDiv {
+
+  .container {
+    background-color: #fff;
+    margin: 50px auto;
+    border-radius: 10px;
+    filter: drop-shadow(2px 2px 3px #ccc);
+  } 
+}
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
     flex-basis: 0;
