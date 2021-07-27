@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
+@import "~react-day-picker/lib/style";
 
 
 body {
@@ -19,9 +20,42 @@ body {
   } 
 }
 
+.formDiv.transactionForm {
+  // width: 450px;
+  .container {
+    background: none;
+    margin: 0;
+    filter: drop-shadow(2px 2px 3px #eee);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.dateFieldContainer {
+  width: 201px;
+}
+
+
+.modal-header {
+  background-color: #eee;
+}
+
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
     flex-basis: 0;
     flex-grow: 0;
 }
+
+}
+
+@media (max-width: 992px) {
+
+  .transactionForm {
+    width: 100%;
+  }
+  
+  .dateFieldContainer {
+    width: 100%;
+  }
 }

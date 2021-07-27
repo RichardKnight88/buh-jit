@@ -1,7 +1,9 @@
-import React, { useState, useEffect }  from 'react'
+import React, { useState, useEffect } from 'react'
 // import axios from 'axios'
 import { useLocation, useHistory } from 'react-router-dom'
 import TransactionForm from './TransactionForm'
+import { Modal, Button } from 'react-bootstrap'
+
 import { getCurrentUser } from './auth/helpers/tokenfunctions'
 
 
@@ -12,6 +14,8 @@ const Dashboard = () => {
 
 
   const [currentUser, setCurrentUser] = useState(null)
+
+
 
 
   useEffect(() => {
@@ -26,9 +30,12 @@ const Dashboard = () => {
 
 
 
-  return (
 
-    <TransactionForm { ...currentUser }/>
+
+  return (
+    <>
+      <TransactionForm {...currentUser} />
+    </>
 
   )
 }
