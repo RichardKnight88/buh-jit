@@ -1,5 +1,5 @@
 import React, { useEffect, useState, getData } from 'react'
-import { Form, Row, Col, Button, Container, Modal } from 'react-bootstrap'
+import { Form, Row, Col, Button, Container, Modal, Toast, ToastContainer } from 'react-bootstrap'
 // import { Typeahead } from 'react-bootstrap-typeahead'
 import { useLocation, useHistory } from 'react-router-dom'
 import axios from 'axios'
@@ -18,6 +18,8 @@ const TransactionForm = (currentUser) => {
   const [monthsNums, setMonthsNums] = useState([])
 
   const [showModal, setShowModal] = useState(false)
+
+  const [showToast, setShowToast] = useState(false)
 
   const [formData, setFormData] = useState({
     transaction_type: 'Outgoing',
@@ -96,7 +98,11 @@ const TransactionForm = (currentUser) => {
 
       history.push('/dashboard')
 
-      clearForm()
+      // clearForm()
+
+      setShowToast(true)
+
+      event.target.reset()
 
       console.log(data)
 
@@ -107,25 +113,24 @@ const TransactionForm = (currentUser) => {
 
   }
 
-  const clearForm = () => {
-    setFormData({
-      transaction_type: '',
-      amount: '',
-      recipient_sender: '',
-      label: '',
-      description: '',
-      repeat: false,
-      repeat_frequency: '',
-      repeat_until: '',
-      transaction_date: '',
-      transaction_day: 0,
-      skipped_months: '',
-      owner: currentUser.id,
-    })
-  }
+  // const clearForm = () => {
 
-  const cancelNewTransaction = () => {
-    clearForm()
+  //   const clearingForm = { ...formData, 
+  //     amount: '',
+  //     recipient_sender: '',
+  //     label: 'None',
+  //     description: '',
+  //     repeat: false,
+  //     repeat_frequency: '',
+  //     repeat_until: '',
+  //     transaction_day: 0,
+  //     skipped_months: '',
+  //   }
+  //   setFormData(clearingForm)
+  // }
+
+  const cancelNewTransaction = (event) => {
+    event.target.reset()
     setShowModal(false)
   }
 
@@ -140,6 +145,10 @@ const TransactionForm = (currentUser) => {
 
   return (
     <>
+
+
+
+
       <Button variant="primary" onClick={handleShow}>
         Add a new Transaction
       </Button>
@@ -153,10 +162,28 @@ const TransactionForm = (currentUser) => {
         </Modal.Header>
         <Modal.Body>
           <>
+
+
+
             <div className="formDiv transactionForm">
               <Container>
 
                 <Form onSubmit={handleSubmit}>
+
+                  <ToastContainer position="middle-center">
+                    <Toast
+                      style={{
+                        backgroundColor: '#b3ffb3',
+                      }}
+                      onClose={() => setShowToast(false)}
+                      show={showToast}
+                      delay={2000}
+                      autohide>
+                      <Toast.Body>
+                        <strong>Transaction successfully added</strong>
+                      </Toast.Body>
+                    </Toast>
+                  </ToastContainer>
 
 
                   <Row className="mb-3 pt-3">
