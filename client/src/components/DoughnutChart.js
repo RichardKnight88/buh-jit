@@ -7,7 +7,7 @@ const DoughnutChart = (transactions) => {
   const [labelsArray, setLabelsArray] = useState([])
   const [transactionsArray, setTransactionsArray] = useState(null)
 
-  // console.log(transactions)
+  console.log(transactions)
   // console.log(typeof (transactions))
 
   // setTransactionsArray(transactions)
@@ -21,7 +21,7 @@ const DoughnutChart = (transactions) => {
     return item.transaction_type === 'Outgoing'
   })
 
-  
+
   const uniqueValues = []
   const getLabels = () => {
     outgoingTransactions.map(item => {
@@ -32,14 +32,18 @@ const DoughnutChart = (transactions) => {
       }
       // console.log('UNIQUE VALUES', uniqueValues)
 
-      setLabelsArray(uniqueValues)
+      if (outgoingTransactions.length > 0) {
+        setLabelsArray(uniqueValues)
+      } else {
+        setLabelsArray([])
+      }
     })
   }
 
   useEffect(() => {
 
     getLabels()
-  }, [])
+  }, [transactions])
 
   // labels.map(label => {
 
@@ -66,7 +70,7 @@ const DoughnutChart = (transactions) => {
         )
       }
       // console.log('RUNNING TOTAL', total)
-      
+
     })
     // console.log('FINAL TOTAL', total)
     values.push(total)
@@ -75,23 +79,12 @@ const DoughnutChart = (transactions) => {
   // console.log('VALUES', values)
 
   const data = {
-    // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
+    
     labels: labelsArray,
     datasets: [
       {
-        // label: '# of Votes',
-        // data: [12, 19, 3, 5, 4, 1],
         data: values,
-        // backgroundColor: [
-        //   'rgba(153, 0, 153, 0.6)',
-        //   'rgba(255, 206, 86, 0.6)',
-        //   'rgba(0, 179, 0, 0.6)',
-        //   'rgba(54, 162, 235, 0.6)',
-        //   'rgba(204, 0, 0, 0.6)',
-        //   'rgba(255, 159, 64, 0.6)',
-        //   'rgba(75, 192, 192, 0.6)',
-        //   'rgba(153, 102, 255, 0.6)'
-        // ],
+        
         backgroundColor: [
           'rgba(153, 0, 153, 1)',
           'rgba(255, 206, 86, 1)',
@@ -117,9 +110,27 @@ const DoughnutChart = (transactions) => {
     ],
   }
 
+  const altData = {
+    
+    labels: ['No Transactions Yet'],
+    datasets: [
+      {
+        data: [1],
+        
+        backgroundColor: [
+          '#bbb'
+        ],
+        borderColor: [
+          // 'rgba(153, 0, 153, 1)'
+        ],
+        borderWidth: 0,
+      }
+    ],
+  }
+
   return (
 
-    <Doughnut data={data} />
+    <Doughnut data={outgoingTransactions.length > 0 ? data : altData} />
 
   )
 

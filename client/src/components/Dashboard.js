@@ -157,7 +157,7 @@ const Dashboard = () => {
                     </thead>
 
                     {monthlyTransactions.length < 1 ? <tr>
-                      <td colSpan={5}>No transaction yet.</td>
+                      <td colSpan={6}>No transaction yet.</td>
                     </tr>
                       :
                       monthlyTransactions.map((item, index) => {
