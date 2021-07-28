@@ -112,7 +112,16 @@ const Dashboard = () => {
               <Col md={12} lg={6}>
 
                 <Container className="tableBackground">
-                  <h2>{currentUser.first_name} {currentUser.last_name}</h2>
+                  <Row className="dashboardHeaderRow">
+                    <Col className="addTransactionButtonCol"></Col>
+                    <Col xs={9} className="dashboardHeading">
+                      <h2>{currentUser.first_name} {currentUser.last_name}</h2>
+                    </Col>
+
+                    <Col className="addTransactionButtonCol">
+                      <TransactionForm {...currentUser} />
+                    </Col>
+                  </Row>
 
                   <Container className="monthYearToggle">
                     {/* <Row> */}
@@ -138,7 +147,6 @@ const Dashboard = () => {
                     {/* </Row> */}
                   </Container>
 
-                  <TransactionForm {...currentUser} />
 
 
                   {/* <div className="formDiv"> */}

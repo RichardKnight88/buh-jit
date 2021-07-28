@@ -155,9 +155,13 @@ const TransactionForm = (currentUser) => {
 
 
 
-
+      {/* 
       <Button variant="primary" onClick={handleShow}>
         Add a new Transaction
+      </Button> */}
+
+      <Button variant="outline-secondary" onClick={handleShow}>
+        <i className="fas fa-plus"></i>
       </Button>
 
       <Modal
