@@ -48,6 +48,7 @@ const NavbarComponent = () => {
     }}>
       <Container>
         <Navbar.Brand href="/">
+          <i className="fas fa-search-dollar"></i>
           Buh-Jit
         </Navbar.Brand>
         <Navbar.Toggle

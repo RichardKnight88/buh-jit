@@ -25,7 +25,7 @@ const TransactionForm = (currentUser) => {
     transaction_type: 'Outgoing',
     amount: '',
     recipient_sender: '',
-    label: '',
+    label: 'None',
     description: '',
     repeat: false,
     repeat_frequency: '',

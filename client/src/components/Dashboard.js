@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 // import axios from 'axios'
 import { useLocation, useHistory } from 'react-router-dom'
 import TransactionForm from './TransactionForm'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Container, Table, Col, Row } from 'react-bootstrap'
+import DoughnutChart from './DoughnutChart'
 
 import { getCurrentUser } from './auth/helpers/tokenfunctions'
 
@@ -15,8 +16,21 @@ const Dashboard = () => {
 
   const [currentUser, setCurrentUser] = useState(null)
 
+  const [displayMonth, setDisplayMonth] = useState(null)
+  const [displayYear, setDisplayYear] = useState(null)
 
+  const currentDate = new Date()
 
+  // console.log(currentDate)
+  // console.log(currentDate.toDateString())
+
+  const currentMonth = currentDate.getMonth()
+
+  // console.log(currentMonth)
+
+  const currentYear = currentDate.getFullYear()
+
+  const monthsStr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
   useEffect(() => {
     const getCurrentUserData = async () => {
@@ -25,16 +39,139 @@ const Dashboard = () => {
       setCurrentUser(currentUserData)
     }
     getCurrentUserData()
+    setDisplayMonth(currentMonth)
+    setDisplayYear(currentDate.getFullYear())
 
   }, [])
 
 
+  const toggleLeft = () => {
+    if (displayMonth > 0) {
+      setDisplayMonth(displayMonth - 1)
+    } else {
+      setDisplayMonth(11)
+      setDisplayYear(displayYear - 1)
+    }
 
+  }
+
+  const toggleRight = () => {
+    if (displayMonth < 11) {
+      setDisplayMonth(displayMonth + 1)
+    } else {
+      setDisplayMonth(0)
+      setDisplayYear(displayYear + 1)
+    }
+  }
+
+
+
+  const tableRowFill = (index) => {
+    if (index % 2 === 0) {
+      return 'fill'
+    }
+  }
+
+  const transformDate = (dateInfo) => {
+    return new Date(dateInfo)
+  }
 
 
   return (
+
     <>
-      <TransactionForm {...currentUser} />
+
+      {currentUser &&
+        <>
+
+          <Container>
+
+            <Row>
+
+              <Col md={12} lg={6}>
+
+                <Container className="tableBackground">
+                  <h2>{currentUser.first_name} {currentUser.last_name}</h2>
+
+                  <Container className="monthYearToggle">
+                    {/* <Row> */}
+                    <Button
+                      variant="secondary"
+                      className="togglButton leftButton"
+                      onClick={toggleLeft}>
+                      <i className="fas fa-caret-left fa-2x"></i>
+                    </Button>
+
+                    <div className="monthYear">{monthsStr[displayMonth][0]}{monthsStr[displayMonth][1]}{monthsStr[displayMonth][2]} {displayYear}</div>
+
+                    <Button
+                      variant="secondary"
+                      className="togglButton rightButton"
+                      onClick={toggleRight}>
+                      <i className="fas fa-caret-right fa-2x"></i>
+                    </Button>
+                    {/* </Row> */}
+                  </Container>
+
+                  <TransactionForm {...currentUser} />
+
+
+                  {/* <div className="formDiv"> */}
+
+                  <Table bordered responsive hover>
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th md="auto">Date</th>
+                        <th md="auto">Amount</th>
+                        <th md="auto">From/To</th>
+                        <th md="auto">Incoming/Outgoing</th>
+                        <th md="auto">Label</th>
+                      </tr>
+                    </thead>
+
+
+                    {currentUser.transactions.map((item, index) => {
+                      return (
+
+                        <tr key={index} className={tableRowFill(index)}>
+                          <td><i className="far fa-edit"></i></td>
+                          <td>{transformDate(item.transaction_date).getDate()}</td>
+                          {/* <td>{item.transaction_date}</td> */}
+
+                          {item.transaction_type === 'Incoming' ?
+                            <td className="credit">£{item.amount}</td>
+                            :
+                            <td className>-£{item.amount}</td>
+                          }
+
+                          <td>{item.recipient_sender}</td>
+                          <td>{item.transaction_type}</td>
+                          <td>{item.label}</td>
+
+                        </tr>
+
+                      )
+                    })}
+
+                  </Table>
+
+                </Container>
+
+              </Col>
+
+              <Col md={12} lg={4}>
+
+                <DoughnutChart transactions={currentUser.transactions}/>
+
+
+              </Col>
+            </Row>
+          </Container>
+          {/* </div> */}
+
+        </>
+      }
     </>
 
   )

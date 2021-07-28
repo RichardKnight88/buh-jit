@@ -41,13 +41,68 @@ body {
 }
 
 
+.credit {
+  color: #008000;
+}
+
+.tableBackground.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 0;
+  margin: 10px auto;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 3px #ccc);
+}
+
+.fill {
+  background-color: #eee;
+}
+
+thead {
+  border: none;
+  border-color: #fff;
+  border-bottom: 1px solid #bbb;
+}
+
+.monthYearToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .monthYear {
+    width: 20%;
+    text-align: center;
+  }
+
+  .togglButton {
+    display: flex;
+    align-items: center;
+    width: 20px; 
+    height: 20px; 
+    background: none;
+    border: none;
+    color: #808080;
+  }
+  .rightButton {
+    margin-left: 5px;
+  }
+
+  .leftButton {
+    margin-right: 12px;
+  }
+
+}
+
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
     flex-basis: 0;
     flex-grow: 0;
 }
-
 }
+
 
 @media (max-width: 992px) {
 
