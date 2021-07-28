@@ -19,6 +19,8 @@ const Dashboard = () => {
   const [displayMonth, setDisplayMonth] = useState(null)
   const [displayYear, setDisplayYear] = useState(null)
 
+  const [monthlyTransactions, setMonthlyTransaction] = useState(null)
+
   const currentDate = new Date()
 
   // console.log(currentDate)
@@ -26,7 +28,7 @@ const Dashboard = () => {
 
   const currentMonth = currentDate.getMonth()
 
-  // console.log(currentMonth)
+  console.log('CURRENT MONTH', currentMonth)
 
   const currentYear = currentDate.getFullYear()
 
@@ -44,6 +46,27 @@ const Dashboard = () => {
 
   }, [])
 
+  const transformDate = (dateInfo) => {
+    return new Date(dateInfo)
+  }
+
+  currentUser && console.log('DATE', transformDate(currentUser.transactions[0].transaction_date))
+
+
+  useEffect(() => {
+    const getMonthlyTransactions = () => {
+
+      const filteredMonthTransactions = currentUser.transactions.filter(item => {
+        return transformDate(item.transaction_date).getMonth() === displayMonth && transformDate(item.transaction_date).getFullYear() === displayYear
+      })
+      console.log('FILTERED TRANSACTIONS', filteredMonthTransactions)
+      setMonthlyTransaction(filteredMonthTransactions)
+    }
+    currentUser && getMonthlyTransactions()
+
+  }, [currentUser, displayMonth])
+
+  console.log('TRANSACTIONS AS STATE', monthlyTransactions)
 
   const toggleLeft = () => {
     if (displayMonth > 0) {
@@ -72,9 +95,7 @@ const Dashboard = () => {
     }
   }
 
-  const transformDate = (dateInfo) => {
-    return new Date(dateInfo)
-  }
+
 
 
   return (
@@ -102,7 +123,11 @@ const Dashboard = () => {
                       <i className="fas fa-caret-left fa-2x"></i>
                     </Button>
 
-                    <div className="monthYear">{monthsStr[displayMonth][0]}{monthsStr[displayMonth][1]}{monthsStr[displayMonth][2]} {displayYear}</div>
+                    <div className="monthYear">
+
+                      <h2>{monthsStr[displayMonth][0]}{monthsStr[displayMonth][1]}{monthsStr[displayMonth][2]} {displayYear}</h2>
+
+                    </div>
 
                     <Button
                       variant="secondary"
@@ -119,6 +144,7 @@ const Dashboard = () => {
                   {/* <div className="formDiv"> */}
 
                   <Table bordered responsive hover>
+
                     <thead>
                       <tr>
                         <th></th>
@@ -130,30 +156,34 @@ const Dashboard = () => {
                       </tr>
                     </thead>
 
+                    {monthlyTransactions.length < 1 ? <tr>
+                      <td colSpan={5}>No transaction yet.</td>
+                    </tr>
+                      :
+                      monthlyTransactions.map((item, index) => {
+                        return (
 
-                    {currentUser.transactions.map((item, index) => {
-                      return (
+                          <tr key={index} className={tableRowFill(index)}>
+                            <td><i className="far fa-edit"></i></td>
+                            <td>{transformDate(item.transaction_date).getDate()}</td>
+                            {/* <td>{item.transaction_date}</td> */}
 
-                        <tr key={index} className={tableRowFill(index)}>
-                          <td><i className="far fa-edit"></i></td>
-                          <td>{transformDate(item.transaction_date).getDate()}</td>
-                          {/* <td>{item.transaction_date}</td> */}
+                            {item.transaction_type === 'Incoming' ?
+                              <td className="credit">£{item.amount}</td>
+                              :
+                              <td className>-£{item.amount}</td>
+                            }
 
-                          {item.transaction_type === 'Incoming' ?
-                            <td className="credit">£{item.amount}</td>
-                            :
-                            <td className>-£{item.amount}</td>
-                          }
+                            <td>{item.recipient_sender}</td>
+                            <td>{item.transaction_type}</td>
+                            <td>{item.label}</td>
 
-                          <td>{item.recipient_sender}</td>
-                          <td>{item.transaction_type}</td>
-                          <td>{item.label}</td>
+                          </tr>
 
-                        </tr>
+                        )
+                      })
 
-                      )
-                    })}
-
+                    }
                   </Table>
 
                 </Container>
@@ -162,7 +192,7 @@ const Dashboard = () => {
 
               <Col md={12} lg={4}>
 
-                <DoughnutChart transactions={currentUser.transactions}/>
+                <DoughnutChart transactions={monthlyTransactions} />
 
 
               </Col>
