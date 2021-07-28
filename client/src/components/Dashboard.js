@@ -151,7 +151,7 @@ const Dashboard = () => {
                         <th md="auto">Date</th>
                         <th md="auto">Amount</th>
                         <th md="auto">From/To</th>
-                        <th md="auto">Incoming/Outgoing</th>
+                        <th md="auto">In/Out</th>
                         <th md="auto">Label</th>
                       </tr>
                     </thead>

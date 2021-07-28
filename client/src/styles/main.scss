@@ -60,6 +60,10 @@ body {
   background-color: #eee;
 }
 
+.table-responsive {
+  width: 95%;
+}
+
 thead {
   border: none;
   border-color: #fff;
@@ -98,6 +102,7 @@ thead {
 td {
   text-align: center;
 }
+
 
 
 @media (min-width: 992px) {
