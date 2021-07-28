@@ -53,13 +53,13 @@ const TransactionForm = (currentUser) => {
     setMonthsNums(populateMonths)
   }, [])
 
-  console.log('MONTHS', monthsNums)
+  // console.log('MONTHS', monthsNums)
 
   useEffect(() => {
     console.log('REPEAT STATUS', repeatStatus)
   }, [repeatStatus])
 
-  console.log('USER AS PROPS', currentUser)
+  // console.log('USER AS PROPS', currentUser)
 
   const handleChange = async (event) => {
     console.log('EVENT', event, 'TARGET', event.target)
@@ -86,6 +86,7 @@ const TransactionForm = (currentUser) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    console.log('EVENT', event.target)
     console.log('REPEAT', formData.repeat)
 
     try {
@@ -98,11 +99,10 @@ const TransactionForm = (currentUser) => {
 
       history.push('/dashboard')
 
-      // clearForm()
-
       setShowToast(true)
 
       event.target.reset()
+      clearForm()
 
       console.log(data)
 
@@ -113,24 +113,31 @@ const TransactionForm = (currentUser) => {
 
   }
 
-  // const clearForm = () => {
+  const clearForm = () => {
 
-  //   const clearingForm = { ...formData, 
-  //     amount: '',
-  //     recipient_sender: '',
-  //     label: 'None',
-  //     description: '',
-  //     repeat: false,
-  //     repeat_frequency: '',
-  //     repeat_until: '',
-  //     transaction_day: 0,
-  //     skipped_months: '',
-  //   }
-  //   setFormData(clearingForm)
-  // }
+    const clearingForm = {
+      ...formData,
+      transaction_type: 'Outgoing',
+      amount: '',
+      recipient_sender: '',
+      label: 'None',
+      description: '',
+      repeat: false,
+      repeat_frequency: '',
+      repeat_until: '',
+      transaction_date: '',
+      transaction_day: 0,
+      skipped_months: '',
+    }
+    setFormData(clearingForm)
+  }
 
-  const cancelNewTransaction = (event) => {
-    event.target.reset()
+  const handleReset = (event) => {
+    event.preventDefault()
+    // console.log('RESET', event.target)
+    // event.target.reset()
+    // console.log('RESET', event.target)
+    clearForm()
     setShowModal(false)
   }
 
@@ -168,7 +175,9 @@ const TransactionForm = (currentUser) => {
             <div className="formDiv transactionForm">
               <Container>
 
-                <Form onSubmit={handleSubmit}>
+                <Form
+                  onSubmit={handleSubmit}
+                >
 
                   <ToastContainer position="middle-center">
                     <Toast
@@ -343,8 +352,9 @@ const TransactionForm = (currentUser) => {
 
 
                   <div className="d-grid gap-2 pb-1">
-                    <Button variant="outline-secondary"
-                      onClick={cancelNewTransaction}>
+                    <Button variant="outline-secondary" onClick={handleReset}
+                    // onClick={cancelNewTransaction}
+                    >
                       Cancel
                     </Button>
                   </div>
