@@ -38,6 +38,7 @@ const Dashboard = () => {
 
   const monthsStr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
+
   useEffect(() => {
     const getCurrentUserData = async () => {
       const currentUserData = await getCurrentUser()
@@ -156,6 +157,15 @@ const Dashboard = () => {
   }
 
 
+  const displayBalance = () => {
+    if (monthlyIncomingSum - monthlyOutgoingSum <= 0) {
+      return `- £${Math.abs(monthlyIncomingSum - monthlyOutgoingSum)}`
+    } else {
+      return `£${monthlyIncomingSum - monthlyOutgoingSum}`
+    }
+  }
+
+
   
 
   if (!monthlyTransactions) return null
@@ -179,7 +189,8 @@ const Dashboard = () => {
                     <Col xs={9} className="dashboardHeading">
                       {/* <h2>{currentUser.first_name} {currentUser.last_name}</h2> */}
                       <h2>Monthly Balance</h2>
-                      <h2>£{monthlyIncomingSum - monthlyOutgoingSum}</h2>
+                      
+                      <h2>{displayBalance()}</h2>
                     </Col>
 
                     <Col className="addTransactionButtonCol">
