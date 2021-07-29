@@ -24,15 +24,36 @@ class TransactionListView(APIView):
 class  TransactionIndividualView(APIView):
 
     permission_classes = (IsAuthenticated, )
-  
-    def delete(self, request, pk):
+
+    def get_transaction(self, pk):
         try:
-            transaction_to_delete = Transaction.objects.get(pk=pk)
+            return Transaction.objects.get(pk=pk)
         except Transaction.DoesNotExist:
             raise NotFound(detail="Transaction Not Found")
+
+
+    def delete(self, request, pk):
+
+        transaction_to_delete = self.get_transaction(pk=pk)
 
         if transaction_to_delete.owner != request.user:
             raise PermissionDenied()
 
         transaction_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+    def put(self, request, pk):
+        
+        transaction_to_edit = self.get_transaction(pk=pk)
+        changes_to_add = request.data
+        serialized_updated_transaction = TransactionSerializer(transaction_to_edit, data=changes_to_add, partial=True)
+
+        if transaction_to_edit.owner != request.user:
+            raise PermissionDenied()
+        
+        if serialized_updated_transaction.is_valid():
+
+            serialized_updated_transaction.save()
+            return Response(serialized_updated_transaction.data, status=status.HTTP_202_ACCEPTED)
+    
