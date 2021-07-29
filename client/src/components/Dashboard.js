@@ -20,6 +20,7 @@ const Dashboard = () => {
   const [displayYear, setDisplayYear] = useState(null)
 
   const [monthlyTransactions, setMonthlyTransaction] = useState(null)
+  const [monthlyOutgoingTransactions, setMonthlyOutgoingTransaction] = useState(null)
 
   const currentDate = new Date()
 
@@ -59,14 +60,36 @@ const Dashboard = () => {
       const filteredMonthTransactions = currentUser.transactions.filter(item => {
         return transformDate(item.transaction_date).getMonth() === displayMonth && transformDate(item.transaction_date).getFullYear() === displayYear
       })
+
+      const outgoingTransactions = filteredMonthTransactions.filter(item => {
+        return item.transaction_type === 'Outgoing'
+      })
+
       console.log('FILTERED TRANSACTIONS', filteredMonthTransactions)
+      console.log('OUTGOING IN DASH', outgoingTransactions)
+
+
       setMonthlyTransaction(filteredMonthTransactions)
+      setMonthlyOutgoingTransaction(outgoingTransactions)
+      
     }
+
     currentUser && getMonthlyTransactions()
+
+    // if (monthlyTransactions) {
+    //   const outgoingTransactions = monthlyTransactions.filter(item => {
+    //     return item.transaction_type === 'Outgoing'
+    //   })
+    //   console.log('OUTGOING IN DASH', outgoingTransactions)
+    // }
 
   }, [currentUser, displayMonth])
 
+  
+
+
   console.log('TRANSACTIONS AS STATE', monthlyTransactions)
+  console.log('DASH OUTGOING AS STATE', monthlyOutgoingTransactions)
 
   const toggleLeft = () => {
     if (displayMonth > 0) {
@@ -96,6 +119,7 @@ const Dashboard = () => {
   }
 
 
+  
 
   if (!monthlyTransactions) return null
 
@@ -201,7 +225,9 @@ const Dashboard = () => {
 
               <Col md={12} lg={4}>
 
-                <DoughnutChart transactions={monthlyTransactions} />
+                <DoughnutChart 
+                  transactions={monthlyTransactions}
+                  outgoingTransactionsProps={monthlyOutgoingTransactions} />
 
 
               </Col>

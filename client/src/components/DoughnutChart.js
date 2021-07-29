@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Doughnut } from 'react-chartjs-2'
 
 
-const DoughnutChart = (transactions) => {
+const DoughnutChart = ({ transactions, outgoingTransactionsProps }) => {
 
   const [labelsArray, setLabelsArray] = useState([])
   const [transactionsArray, setTransactionsArray] = useState(null)
 
-  console.log(transactions)
+  console.log('ALL TRANS IN DOUGHNUT', transactions)
+  console.log('OUT IN DOUGHNUT', outgoingTransactionsProps)
   // console.log(typeof (transactions))
 
   // setTransactionsArray(transactions)
@@ -17,14 +18,17 @@ const DoughnutChart = (transactions) => {
   // })
 
 
-  const outgoingTransactions = transactions.transactions.filter(item => {
-    return item.transaction_type === 'Outgoing'
-  })
+  // const outgoingTransactions = transactions.transactions.filter(item => {
+  //   return item.transaction_type === 'Outgoing'
+  // })
+  // const outgoingTransactions = transactions.filter(item => {
+  //   return item.transaction_type === 'Outgoing'
+  // })
 
 
   const uniqueValues = []
   const getLabels = () => {
-    outgoingTransactions.map(item => {
+    outgoingTransactionsProps.map(item => {
       // console.log('TYPE', typeof (item.label))
       // console.log('INDEX', uniqueValues.indexOf(item.label))
       if (uniqueValues.indexOf(item.label) < 0) {
@@ -32,7 +36,7 @@ const DoughnutChart = (transactions) => {
       }
       // console.log('UNIQUE VALUES', uniqueValues)
 
-      if (outgoingTransactions.length > 0) {
+      if (outgoingTransactionsProps.length > 0) {
         setLabelsArray(uniqueValues)
       } else {
         setLabelsArray([])
@@ -45,12 +49,6 @@ const DoughnutChart = (transactions) => {
     getLabels()
   }, [transactions])
 
-  // labels.map(label => {
-
-  // })
-
-  // console.log('OUTGOING', outgoingTransactions)
-  // console.log(transactions.transactions)
 
 
   const values = []
@@ -61,7 +59,7 @@ const DoughnutChart = (transactions) => {
 
     // console.log('LABEL', label)
 
-    outgoingTransactions.map(item => {
+    outgoingTransactionsProps.map(item => {
       if (item.label === label) {
         // console.log('ITEM', item)
         // console.log('AMOUNT', item.amount)
@@ -130,7 +128,7 @@ const DoughnutChart = (transactions) => {
 
   return (
 
-    <Doughnut data={outgoingTransactions.length > 0 ? data : altData} />
+    <Doughnut data={outgoingTransactionsProps.length > 0 ? data : altData} />
 
   )
 
