@@ -7,8 +7,9 @@ import { getTokenFromLocalStorage } from './auth/helpers/tokenfunctions'
 
 
 
-const TransactionForm = (currentUser) => {
+const TransactionForm = ({ rerender }) => {
 
+  console.log('RERENDER', rerender )
 
   const location = useLocation()
   const history = useHistory()
@@ -86,8 +87,8 @@ const TransactionForm = (currentUser) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log('EVENT', event.target)
-    console.log('REPEAT', formData.repeat)
+    // console.log('EVENT', event.target)
+    // console.log('REPEAT', formData.repeat)
 
     try {
       const { data } = await axios.post('/api/transactions/', formData,
@@ -104,6 +105,9 @@ const TransactionForm = (currentUser) => {
       event.target.reset()
       clearForm()
 
+      setTimeout(() => {
+        rerender()
+      },300)
       console.log(data)
 
     } catch (err) {
@@ -162,7 +166,7 @@ const TransactionForm = (currentUser) => {
       
       <OverlayTrigger
         placement="left"
-        delay={{ show: 250, hide: 150 }}
+        delay={{ show: 400, hide: 150 }}
         overlay={displayTooltip}
       >
 

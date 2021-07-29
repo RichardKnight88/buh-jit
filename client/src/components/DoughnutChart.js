@@ -7,8 +7,8 @@ const DoughnutChart = ({ transactions, outgoingTransactionsProps }) => {
   const [labelsArray, setLabelsArray] = useState([])
   const [transactionsArray, setTransactionsArray] = useState(null)
 
-  console.log('ALL TRANS IN DOUGHNUT', transactions)
-  console.log('OUT IN DOUGHNUT', outgoingTransactionsProps)
+  // console.log('ALL TRANS IN DOUGHNUT', transactions)
+  // console.log('OUT IN DOUGHNUT', outgoingTransactionsProps)
   // console.log(typeof (transactions))
 
   // setTransactionsArray(transactions)

@@ -51,6 +51,8 @@ const NavbarComponent = () => {
           <i className="fas fa-search-dollar"></i>
           Buh-Jit
         </Navbar.Brand>
+
+
         <Navbar.Toggle
           aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -59,19 +61,12 @@ const NavbarComponent = () => {
               <LoginToast />
               :
               <>
-                {/* <Nav.Link href="#link">Link</Nav.Link> */}
+                {/* <Nav.Link href="/dashboard">Dashboard</Nav.Link> */}
 
-                {/* <Navbar.Brand>
-                  <img
-                    alt="profile picture"
-                    src="/logo.svg"
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top"
-                  />{' '}
-                </Navbar.Brand> */}
+                <Nav.Link href="/dashboard" className="justify-content-start">Dashboard</Nav.Link>
+
                 <NavDropdown title={`Logged in as ${username}`} id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+                  {/* <NavDropdown.Item href="/profile">Profile</NavDropdown.Item> */}
 
                   <NavDropdown.Divider />
 

@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { Modal, Card, ListGroup, ListGroupItem, Container, Row, Col, OverlayTrigger, Popover, Button } from 'react-bootstrap'
 import { getIndividualTransaction, deleteTransaction, transformDate } from './auth/helpers/tokenfunctions'
 
-const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId }) => {
+const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, rerender }) => {
 
   const history = useHistory()
+  const location = useLocation()
 
   const [transaction, setTransaction] = useState(null)
   const [deleteToast, setDeleteToast] = useState(false)
 
 
-  console.log('ID', transactionId)
-  console.log('TRANS DETAIL', showTransactionDetail)
+  // console.log('ID', transactionId)
+  // console.log('TRANS DETAIL', showTransactionDetail)
 
   useEffect(() => {
     const accessTransaction = async () => {
@@ -28,14 +29,19 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId }
   const hideDeleteToast = () => setDeleteToast(false)
 
   const editTransaction = () => {
-    console.log('CLICK')
+    console.log('CLICK', location)
     showDeleteToast()
   }
 
   const confirmDelete = () => {
     deleteTransaction(transaction.id)
-    handleClose()
+    setTimeout(() => {
+      handleClose()
+      rerender()
+    }, 300)
     history.push('/dashboard')
+    location.pathname
+    // rerenderToggle
   }
 
 
@@ -68,7 +74,7 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId }
 
                           <Popover.Body className="deletePopover">
                             {/* <Button variant="outline-secondary">No</Button> */}
-                            <Button 
+                            <Button
                               variant="outline-danger"
                               onClick={confirmDelete}>Yes</Button>
                           </Popover.Body>

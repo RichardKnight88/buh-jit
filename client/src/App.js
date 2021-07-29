@@ -29,6 +29,10 @@ const App = () => {
         <Switch>
 
 
+          <Route path='/dashboard1'>
+            <Dashboard />
+          </Route>
+          
           <Route path='/dashboard'>
             <Dashboard />
           </Route>

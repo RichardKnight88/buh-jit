@@ -29,6 +29,7 @@ const Dashboard = () => {
 
   const [showTransactionDetail, setShowTransactionDetail] = useState(false)
   const [transactionId, setTransactionId] = useState(null)
+  const [rerenderToggle, setRerenderToggle] = useState(false)
 
   const currentDate = new Date()
 
@@ -37,7 +38,7 @@ const Dashboard = () => {
 
   const currentMonth = currentDate.getMonth()
 
-  console.log('CURRENT MONTH', currentMonth)
+  // console.log('CURRENT MONTH', currentMonth)
 
   const currentYear = currentDate.getFullYear()
 
@@ -54,13 +55,8 @@ const Dashboard = () => {
     setDisplayMonth(currentMonth)
     setDisplayYear(currentDate.getFullYear())
 
-  }, [])
+  }, [rerenderToggle])
 
-  // const transformDate = (dateInfo) => {
-  //   return new Date(dateInfo)
-  // }
-
-  currentUser && console.log('DATE', transformDate(currentUser.transactions[0].transaction_date))
 
 
   useEffect(() => {
@@ -73,9 +69,7 @@ const Dashboard = () => {
 
       filteredMonthTransactions.sort((a, b) => (transformDate(b.transaction_date).getDate()) - transformDate(a.transaction_date).getDate())
 
-      // const outgoingTransactions = filteredMonthTransactions.filter(item => {
-      //   return item.transaction_type === 'Outgoing'
-      // })
+
       const outgoingTransactions = []
       const incomingTransactions = []
 
@@ -87,9 +81,9 @@ const Dashboard = () => {
         }
       })
 
-      console.log('FILTERED TRANSACTIONS', filteredMonthTransactions)
-      console.log('OUTGOING IN DASH', outgoingTransactions)
-      console.log('INCOMING IN DASH', incomingTransactions)
+      // console.log('FILTERED TRANSACTIONS', filteredMonthTransactions)
+      // console.log('OUTGOING IN DASH', outgoingTransactions)
+      // console.log('INCOMING IN DASH', incomingTransactions)
 
 
       setMonthlyTransaction(filteredMonthTransactions)
@@ -104,7 +98,7 @@ const Dashboard = () => {
     //   const outgoingTransactions = monthlyTransactions.filter(item => {
     //     return item.transaction_type === 'Outgoing'
     //   })
-    //   console.log('OUTGOING IN DASH', outgoingTransactions)
+    console.log('TRANSACTION FILTERS RUNNING AGAIN')
     // }
 
   }, [currentUser, displayMonth])
@@ -118,6 +112,7 @@ const Dashboard = () => {
     return sum
   }
 
+
   useEffect(() => {
 
     if (monthlyTransactions) {
@@ -127,10 +122,10 @@ const Dashboard = () => {
 
   }, [monthlyTransactions])
 
-  console.log('TRANSACTIONS AS STATE', monthlyTransactions)
-  console.log('DASH OUTGOING AS STATE', monthlyOutgoingTransactions)
-  console.log('DASH INCOMING AS STATE', monthlyIncomingTransactions)
-  console.log('BALANCE AS STATE', monthlyIncomingSum - monthlyOutgoingSum)
+  // console.log('TRANSACTIONS AS STATE', monthlyTransactions)
+  // console.log('DASH OUTGOING AS STATE', monthlyOutgoingTransactions)
+  // console.log('DASH INCOMING AS STATE', monthlyIncomingTransactions)
+  // console.log('BALANCE AS STATE', monthlyIncomingSum - monthlyOutgoingSum)
 
 
   const toggleLeft = () => {
@@ -172,10 +167,10 @@ const Dashboard = () => {
 
 
   const checkClick = (event) => {
-    
+
     const idAsString = event.target.outerHTML.toString().replace('<td value="', '').split('"')[0]
     const idAsInt = parseInt(idAsString)
-    console.log('ID', idAsInt)
+    // console.log('ID', idAsInt)
     setTransactionId(idAsInt)
     handleShow()
   }
@@ -183,9 +178,15 @@ const Dashboard = () => {
   //   console.log('hover', event)
   // }
 
-  console.log('<<<<ID>>>>', transactionId)
+  // console.log('<<<<ID>>>>', transactionId)
   const handleClose = () => setShowTransactionDetail(false)
   const handleShow = () => setShowTransactionDetail(true)
+
+
+  const rerender = () => {
+    setRerenderToggle(!rerenderToggle)
+  }
+
 
   if (!monthlyTransactions) return null
 
@@ -195,7 +196,7 @@ const Dashboard = () => {
 
       {currentUser &&
         <>
-
+        
           <Container>
 
             <Row>
@@ -213,7 +214,10 @@ const Dashboard = () => {
                     </Col>
 
                     <Col className="addTransactionButtonCol">
-                      <TransactionForm {...currentUser} />
+                      <TransactionForm 
+                        // {...currentUser} 
+                        rerender={rerender}
+                      />
                     </Col>
                   </Row>
 
@@ -308,6 +312,8 @@ const Dashboard = () => {
             handleClose={handleClose}
             showTransactionDetail={showTransactionDetail}
             transactionId={transactionId}
+            rerender={rerender}
+            rerenderToggle={rerenderToggle}
           />
           }
           {/* </div> */}

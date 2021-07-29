@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Form, Button } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 // import { handleChange } from './formFunctions'
 
 
@@ -15,7 +15,7 @@ const LoginForm = () => {
   })
 
   const history = useHistory()
-  // const location = useLocation()
+  const location = useLocation()
 
   const handleChange = async (event) => {
     // console.log('EVENT', event.target.name, 'VALUE', event.target.value)
@@ -36,7 +36,7 @@ const LoginForm = () => {
       setTokenToLocalStorage(data.token, data.username)
 
       history.push('/dashboard')
-
+      location.pathname
       console.log(data)
 
     } catch (err) {

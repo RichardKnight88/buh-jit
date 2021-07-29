@@ -36,7 +36,7 @@ export const getCurrentUser = async () => {
       },
     }
   )
-  console.log(data)
+  console.log('GET REQ', data.transactions.length)
 
   return data
 
