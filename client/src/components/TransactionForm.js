@@ -1,5 +1,5 @@
 import React, { useEffect, useState, getData } from 'react'
-import { Form, Row, Col, Button, Container, Modal, Toast, ToastContainer } from 'react-bootstrap'
+import { Form, Row, Col, Button, Container, Modal, Toast, ToastContainer, Tooltip, OverlayTrigger } from 'react-bootstrap'
 // import { Typeahead } from 'react-bootstrap-typeahead'
 import { useLocation, useHistory } from 'react-router-dom'
 import axios from 'axios'
@@ -150,19 +150,27 @@ const TransactionForm = (currentUser) => {
   const handleShow = () => setShowModal(true)
 
 
+  const displayTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Add a new transaction
+    </Tooltip>
+  )
+
   return (
     <>
 
+      
+      <OverlayTrigger
+        placement="left"
+        delay={{ show: 250, hide: 150 }}
+        overlay={displayTooltip}
+      >
 
+        <Button variant="outline-secondary" onClick={handleShow}>
+          <i className="fas fa-plus"></i>
+        </Button>
 
-      {/* 
-      <Button variant="primary" onClick={handleShow}>
-        Add a new Transaction
-      </Button> */}
-
-      <Button variant="outline-secondary" onClick={handleShow}>
-        <i className="fas fa-plus"></i>
-      </Button>
+      </OverlayTrigger>
 
       <Modal
         show={showModal}
