@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 // import axios from 'axios'
 import { useLocation, useHistory } from 'react-router-dom'
 import TransactionForm from './TransactionForm'
+import TransactionDetail from './TransactionDetail'
 import { Modal, Button, Container, Table, Col, Row } from 'react-bootstrap'
 import DoughnutChart from './DoughnutChart'
 
@@ -24,6 +25,9 @@ const Dashboard = () => {
   const [monthlyIncomingTransactions, setMonthlyIncomingTransaction] = useState(null)
   const [monthlyIncomingSum, setMonthlyIncomingSum] = useState(null)
   const [monthlyOutgoingSum, setMonthlyOutgoingSum] = useState(null)
+
+  const [showTransactionDetail, setShowTransactionDetail] = useState(false)
+  const [transactionId, setTransactionId] = useState(null)
 
   const currentDate = new Date()
 
@@ -167,25 +171,28 @@ const Dashboard = () => {
 
 
   const checkClick = (event) => {
-    console.log('CLICK', event)
-    console.log('TARGET', event.target)
-    console.log('TYPE', typeof(event.target))
-    console.log('STRING', event.target.toString())
-    console.log('HTML', event.target.outerHTML)
-    console.log('HTML', parseInt(event.target.outerHTML))
-    console.log('STRING', event.target.outerHTML.toString())
-    console.log('STRING', event.target.outerHTML.toString().replace('<td value="', '').split('"'))
+    // console.log('CLICK', event)
+    // console.log('TARGET', event.target)
+    // console.log('TYPE', typeof(event.target))
+    // console.log('STRING', event.target.toString())
+    // console.log('HTML', event.target.outerHTML)
+    // console.log('STRING', event.target.outerHTML.toString())
+    // console.log('STRING', event.target.outerHTML.toString().replace('<td value="', '').split('"'))
     const idAsString = event.target.outerHTML.toString().replace('<td value="', '').split('"')[0]
-    console.log(idAsString)
-    console.log(typeof(idAsString))
+    // console.log(idAsString)
+    // console.log(typeof(idAsString))
     const idAsInt = parseInt(idAsString)
-    console.log(typeof(idAsInt))
-    console.log('VALUE', event.target.value)
+    console.log('ID', idAsInt)
+    setTransactionId(idAsInt)
+    handleShow()
   }
   // const hoverCheck = (event) => {
   //   console.log('hover', event)
   // }
 
+  console.log('<<<<ID>>>>', transactionId)
+  const handleClose = () => setShowTransactionDetail(false)
+  const handleShow = () => setShowTransactionDetail(true)
 
   if (!monthlyTransactions) return null
 
@@ -304,6 +311,12 @@ const Dashboard = () => {
               </Col>
             </Row>
           </Container>
+          {showTransactionDetail && <TransactionDetail
+            handleClose={handleClose}
+            showTransactionDetail={showTransactionDetail}
+            transactionId={transactionId}
+          />
+          }
           {/* </div> */}
 
         </>
