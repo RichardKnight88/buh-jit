@@ -97,6 +97,7 @@ const Dashboard = () => {
 
 
 
+  if (!monthlyTransactions) return null
 
   return (
 
