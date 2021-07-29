@@ -39,7 +39,7 @@ const TransactionForm = (currentUser) => {
 
   const transactionTypes = ['Outgoing', 'Incoming']
 
-  const labels = ['Salary', 'Groceries', 'Clothes', 'Beauty', 'Eating Out', 'Refund', 'Other']
+  const labels = ['Salary', 'Groceries', 'Clothes', 'Beauty', 'Eating Out', 'Refund', 'Other', 'Rent', 'Mortgage']
 
   const repeatFrequency = ['Daily', 'Every Week', 'Every 2 Weeks', 'Every 4 Weeks', 'Monthly', 'Quarterly', 'Annually']
 
