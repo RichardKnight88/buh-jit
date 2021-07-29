@@ -60,10 +60,12 @@ const Dashboard = () => {
   useEffect(() => {
     const getMonthlyTransactions = () => {
 
+      
       const filteredMonthTransactions = currentUser.transactions.filter(item => {
         return transformDate(item.transaction_date).getMonth() === displayMonth && transformDate(item.transaction_date).getFullYear() === displayYear
       })
 
+      filteredMonthTransactions.sort((a, b) => (transformDate(b.transaction_date).getDate()) - transformDate(a.transaction_date).getDate())
 
       // const outgoingTransactions = filteredMonthTransactions.filter(item => {
       //   return item.transaction_type === 'Outgoing'
