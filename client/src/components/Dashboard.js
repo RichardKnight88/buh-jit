@@ -22,7 +22,8 @@ const Dashboard = () => {
   const [monthlyTransactions, setMonthlyTransaction] = useState(null)
   const [monthlyOutgoingTransactions, setMonthlyOutgoingTransaction] = useState(null)
   const [monthlyIncomingTransactions, setMonthlyIncomingTransaction] = useState(null)
-  const [monthlyBalance, setMonthlyBalance] = useState(null)
+  const [monthlyIncomingSum, setMonthlyIncomingSum] = useState(null)
+  const [monthlyOutgoingSum, setMonthlyOutgoingSum] = useState(null)
 
   const currentDate = new Date()
 
@@ -102,8 +103,8 @@ const Dashboard = () => {
 
 
 
-  const getMonthlyBalance = () => {
-    const sum = monthlyIncomingTransactions.reduce((acc, item) => {
+  const getTotals = (variableToMap) => {
+    const sum = variableToMap.reduce((acc, item) => {
       return acc + item.amount
     }, 0)
     return sum
@@ -111,14 +112,17 @@ const Dashboard = () => {
 
   useEffect(() => {
 
-    monthlyTransactions && setMonthlyBalance(getMonthlyBalance())
+    if (monthlyTransactions) {
+      setMonthlyOutgoingSum(getTotals(monthlyOutgoingTransactions))
+      setMonthlyIncomingSum(getTotals(monthlyIncomingTransactions))
+    }
 
   },[monthlyTransactions])
 
   console.log('TRANSACTIONS AS STATE', monthlyTransactions)
   console.log('DASH OUTGOING AS STATE', monthlyOutgoingTransactions)
   console.log('DASH INCOMING AS STATE', monthlyIncomingTransactions)
-  console.log('BALANCE AS STATE', monthlyBalance)
+  console.log('BALANCE AS STATE', monthlyIncomingSum - monthlyOutgoingSum)
 
 
   const toggleLeft = () => {
@@ -173,7 +177,7 @@ const Dashboard = () => {
                     <Col xs={9} className="dashboardHeading">
                       {/* <h2>{currentUser.first_name} {currentUser.last_name}</h2> */}
                       <h2>Monthly Balance</h2>
-                      <h2>£{monthlyBalance}</h2>
+                      <h2>£{monthlyIncomingSum - monthlyOutgoingSum}</h2>
                     </Col>
 
                     <Col className="addTransactionButtonCol">
