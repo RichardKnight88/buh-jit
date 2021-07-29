@@ -21,6 +21,8 @@ const Dashboard = () => {
 
   const [monthlyTransactions, setMonthlyTransaction] = useState(null)
   const [monthlyOutgoingTransactions, setMonthlyOutgoingTransaction] = useState(null)
+  const [monthlyIncomingTransactions, setMonthlyIncomingTransaction] = useState(null)
+  const [monthlyBalance, setMonthlyBalance] = useState(null)
 
   const currentDate = new Date()
 
@@ -61,16 +63,29 @@ const Dashboard = () => {
         return transformDate(item.transaction_date).getMonth() === displayMonth && transformDate(item.transaction_date).getFullYear() === displayYear
       })
 
-      const outgoingTransactions = filteredMonthTransactions.filter(item => {
-        return item.transaction_type === 'Outgoing'
+
+      // const outgoingTransactions = filteredMonthTransactions.filter(item => {
+      //   return item.transaction_type === 'Outgoing'
+      // })
+      const outgoingTransactions = []
+      const incomingTransactions = []
+
+      filteredMonthTransactions.map(item => {
+        if (item.transaction_type === 'Outgoing') {
+          outgoingTransactions.push(item)
+        } else {
+          incomingTransactions.push(item)
+        }
       })
 
       console.log('FILTERED TRANSACTIONS', filteredMonthTransactions)
       console.log('OUTGOING IN DASH', outgoingTransactions)
+      console.log('INCOMING IN DASH', incomingTransactions)
 
 
       setMonthlyTransaction(filteredMonthTransactions)
       setMonthlyOutgoingTransaction(outgoingTransactions)
+      setMonthlyIncomingTransaction(incomingTransactions)
       
     }
 
@@ -85,11 +100,26 @@ const Dashboard = () => {
 
   }, [currentUser, displayMonth])
 
-  
 
+
+  const getMonthlyBalance = () => {
+    const sum = monthlyIncomingTransactions.reduce((acc, item) => {
+      return acc + item.amount
+    }, 0)
+    return sum
+  }
+
+  useEffect(() => {
+
+    monthlyTransactions && setMonthlyBalance(getMonthlyBalance())
+
+  },[monthlyTransactions])
 
   console.log('TRANSACTIONS AS STATE', monthlyTransactions)
   console.log('DASH OUTGOING AS STATE', monthlyOutgoingTransactions)
+  console.log('DASH INCOMING AS STATE', monthlyIncomingTransactions)
+  console.log('BALANCE AS STATE', monthlyBalance)
+
 
   const toggleLeft = () => {
     if (displayMonth > 0) {
@@ -100,6 +130,7 @@ const Dashboard = () => {
     }
 
   }
+
 
   const toggleRight = () => {
     if (displayMonth < 11) {
@@ -140,7 +171,9 @@ const Dashboard = () => {
                   <Row className="dashboardHeaderRow">
                     <Col className="addTransactionButtonCol"></Col>
                     <Col xs={9} className="dashboardHeading">
-                      <h2>{currentUser.first_name} {currentUser.last_name}</h2>
+                      {/* <h2>{currentUser.first_name} {currentUser.last_name}</h2> */}
+                      <h2>Monthly Balance</h2>
+                      <h2>£{monthlyBalance}</h2>
                     </Col>
 
                     <Col className="addTransactionButtonCol">
@@ -159,7 +192,8 @@ const Dashboard = () => {
 
                     <div className="monthYear">
 
-                      <h2>{monthsStr[displayMonth][0]}{monthsStr[displayMonth][1]}{monthsStr[displayMonth][2]} {displayYear}</h2>
+                      {/* <h2>{monthsStr[displayMonth][0]}{monthsStr[displayMonth][1]}{monthsStr[displayMonth][2]} {displayYear}</h2> */}
+                      <h2>{monthsStr[displayMonth]} {displayYear}</h2>
 
                     </div>
 
