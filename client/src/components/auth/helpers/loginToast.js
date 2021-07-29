@@ -15,7 +15,7 @@ const LoginToast = (history) => {
         overlay={<Popover id="popover-basic" >
           <Popover.Header as="h3">Login</Popover.Header>
           <Popover.Body>
-            <LoginForm history={history}/>
+            <LoginForm />
           </Popover.Body>
         </Popover >}
       >

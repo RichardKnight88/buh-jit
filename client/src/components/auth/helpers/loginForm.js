@@ -35,7 +35,7 @@ const LoginForm = () => {
 
       setTokenToLocalStorage(data.token, data.username)
 
-      history.push('/profile')
+      history.push('/dashboard')
 
       console.log(data)
 

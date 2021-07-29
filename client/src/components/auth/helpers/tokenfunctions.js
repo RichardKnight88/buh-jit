@@ -65,6 +65,22 @@ export const getIndividualTransaction = async (transactionId) => {
 }
 
 
+export const deleteTransaction = async (transactionId) => {
+
+  try {
+    await axios.delete(`/api/transactions/${transactionId}`, 
+      {
+        headers: {
+          Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+        },
+      }
+    )
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+
 export const transformDate = (dateInfo) => {
   return new Date(dateInfo)
 }

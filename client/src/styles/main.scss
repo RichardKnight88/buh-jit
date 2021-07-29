@@ -165,6 +165,22 @@ tbody {
   }
 }
 
+#popover-basic {
+  filter: drop-shadow(2px 2px 3px #000);
+}
+
+.deletePopoverHeader {
+  background-color: #b10000;
+  color: #fff;
+}
+.popover-body.deletePopover{
+  display: flex;
+  justify-content: center;
+  .btn {
+    // margin: 10px;
+  }
+}
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
     flex-basis: 0;
