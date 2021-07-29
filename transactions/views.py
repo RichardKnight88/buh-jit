@@ -31,6 +31,13 @@ class  TransactionIndividualView(APIView):
         except Transaction.DoesNotExist:
             raise NotFound(detail="Transaction Not Found")
 
+    
+    def get(self, request, pk):
+        individual_transaction = self.get_transaction(pk=pk)
+
+        serialized_individual_transaction = TransactionSerializer(individual_transaction)
+        return Response(serialized_individual_transaction.data, status=status.HTTP_200_OK)
+
 
     def delete(self, request, pk):
 

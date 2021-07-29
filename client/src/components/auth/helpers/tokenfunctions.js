@@ -41,3 +41,30 @@ export const getCurrentUser = async () => {
   return data
 
 }
+
+
+export const getIndividualTransaction = async (transactionId) => {
+
+  try {
+
+    const { data } = await axios.get(`/api/transactions/${transactionId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+        },
+      }
+    )
+
+    console.log('DATA', data)
+    return data
+
+  } catch (err) {
+    console.log('Something has gone wrong', err)
+  }
+
+}
+
+
+export const transformDate = (dateInfo) => {
+  return new Date(dateInfo)
+}

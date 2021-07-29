@@ -5,6 +5,7 @@ import TransactionForm from './TransactionForm'
 import TransactionDetail from './TransactionDetail'
 import { Modal, Button, Container, Table, Col, Row } from 'react-bootstrap'
 import DoughnutChart from './DoughnutChart'
+import { transformDate } from './auth/helpers/tokenfunctions'
 
 import { getCurrentUser } from './auth/helpers/tokenfunctions'
 
@@ -55,9 +56,9 @@ const Dashboard = () => {
 
   }, [])
 
-  const transformDate = (dateInfo) => {
-    return new Date(dateInfo)
-  }
+  // const transformDate = (dateInfo) => {
+  //   return new Date(dateInfo)
+  // }
 
   currentUser && console.log('DATE', transformDate(currentUser.transactions[0].transaction_date))
 
@@ -171,16 +172,8 @@ const Dashboard = () => {
 
 
   const checkClick = (event) => {
-    // console.log('CLICK', event)
-    // console.log('TARGET', event.target)
-    // console.log('TYPE', typeof(event.target))
-    // console.log('STRING', event.target.toString())
-    // console.log('HTML', event.target.outerHTML)
-    // console.log('STRING', event.target.outerHTML.toString())
-    // console.log('STRING', event.target.outerHTML.toString().replace('<td value="', '').split('"'))
+    
     const idAsString = event.target.outerHTML.toString().replace('<td value="', '').split('"')[0]
-    // console.log(idAsString)
-    // console.log(typeof(idAsString))
     const idAsInt = parseInt(idAsString)
     console.log('ID', idAsInt)
     setTransactionId(idAsInt)

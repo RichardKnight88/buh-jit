@@ -134,7 +134,36 @@ tbody {
   }
 }
 
+.transactionCard {
+  margin: 15px auto;
+  filter: drop-shadow(2px 2px 3px #ccc);
+}
 
+.fa-edit {
+  color: #808080;
+  &:hover {
+    cursor: pointer;
+    color: #000;
+  }
+}
+
+.fa-trash-alt {
+  color: #8004048a;
+  &:hover {
+    cursor: pointer;
+    color: #b10000;
+  }
+}
+
+.card-footer {
+  text-align: center;
+  font-weight: 700;
+  color: #808080;
+  &:hover {
+    cursor: pointer;
+    color: #ccc;
+  }
+}
 
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
