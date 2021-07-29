@@ -61,7 +61,7 @@ const Dashboard = () => {
   useEffect(() => {
     const getMonthlyTransactions = () => {
 
-      
+
       const filteredMonthTransactions = currentUser.transactions.filter(item => {
         return transformDate(item.transaction_date).getMonth() === displayMonth && transformDate(item.transaction_date).getFullYear() === displayYear
       })
@@ -90,7 +90,7 @@ const Dashboard = () => {
       setMonthlyTransaction(filteredMonthTransactions)
       setMonthlyOutgoingTransaction(outgoingTransactions)
       setMonthlyIncomingTransaction(incomingTransactions)
-      
+
     }
 
     currentUser && getMonthlyTransactions()
@@ -120,7 +120,7 @@ const Dashboard = () => {
       setMonthlyIncomingSum(getTotals(monthlyIncomingTransactions))
     }
 
-  },[monthlyTransactions])
+  }, [monthlyTransactions])
 
   console.log('TRANSACTIONS AS STATE', monthlyTransactions)
   console.log('DASH OUTGOING AS STATE', monthlyOutgoingTransactions)
@@ -166,7 +166,26 @@ const Dashboard = () => {
   }
 
 
-  
+  const checkClick = (event) => {
+    console.log('CLICK', event)
+    console.log('TARGET', event.target)
+    console.log('TYPE', typeof(event.target))
+    console.log('STRING', event.target.toString())
+    console.log('HTML', event.target.outerHTML)
+    console.log('HTML', parseInt(event.target.outerHTML))
+    console.log('STRING', event.target.outerHTML.toString())
+    console.log('STRING', event.target.outerHTML.toString().replace('<td value="', '').split('"'))
+    const idAsString = event.target.outerHTML.toString().replace('<td value="', '').split('"')[0]
+    console.log(idAsString)
+    console.log(typeof(idAsString))
+    const idAsInt = parseInt(idAsString)
+    console.log(typeof(idAsInt))
+    console.log('VALUE', event.target.value)
+  }
+  // const hoverCheck = (event) => {
+  //   console.log('hover', event)
+  // }
+
 
   if (!monthlyTransactions) return null
 
@@ -189,7 +208,7 @@ const Dashboard = () => {
                     <Col xs={9} className="dashboardHeading">
                       {/* <h2>{currentUser.first_name} {currentUser.last_name}</h2> */}
                       <h2>Monthly Balance</h2>
-                      
+
                       <h2>{displayBalance()}</h2>
                     </Col>
 
@@ -231,7 +250,7 @@ const Dashboard = () => {
 
                     <thead>
                       <tr>
-                        <th></th>
+                        {/* <th></th> */}
                         <th md="auto">Date</th>
                         <th md="auto">Amount</th>
                         <th md="auto">From/To</th>
@@ -239,35 +258,36 @@ const Dashboard = () => {
                         <th md="auto">Label</th>
                       </tr>
                     </thead>
+                    <tbody>
+                      {monthlyTransactions.length < 1 ? <tr>
+                        <td colSpan={6}>No transaction yet.</td>
+                      </tr>
+                        :
+                        monthlyTransactions.map((item, index) => {
+                          return (
 
-                    {monthlyTransactions.length < 1 ? <tr>
-                      <td colSpan={6}>No transaction yet.</td>
-                    </tr>
-                      :
-                      monthlyTransactions.map((item, index) => {
-                        return (
+                            <tr key={index} className={tableRowFill(index)} onClick={checkClick}>
+                              {/* <td><i className="far fa-edit"></i></td> */}
+                              <td value={item.id}>{transformDate(item.transaction_date).getDate()}</td>
+                              {/* <td>{item.transaction_date}</td> */}
 
-                          <tr key={index} className={tableRowFill(index)}>
-                            <td><i className="far fa-edit"></i></td>
-                            <td>{transformDate(item.transaction_date).getDate()}</td>
-                            {/* <td>{item.transaction_date}</td> */}
+                              {item.transaction_type === 'Incoming' ?
+                                <td value={item.id} className="credit">£{item.amount}</td>
+                                :
+                                <td value={item.id} className>-£{item.amount}</td>
+                              }
 
-                            {item.transaction_type === 'Incoming' ?
-                              <td className="credit">£{item.amount}</td>
-                              :
-                              <td className>-£{item.amount}</td>
-                            }
+                              <td value={item.id}>{item.recipient_sender}</td>
+                              <td value={item.id}>{item.transaction_type}</td>
+                              <td value={item.id}>{item.label}</td>
 
-                            <td>{item.recipient_sender}</td>
-                            <td>{item.transaction_type}</td>
-                            <td>{item.label}</td>
+                            </tr>
 
-                          </tr>
+                          )
+                        })
 
-                        )
-                      })
-
-                    }
+                      }
+                    </tbody>
                   </Table>
 
                 </Container>
@@ -276,7 +296,7 @@ const Dashboard = () => {
 
               <Col md={12} lg={4}>
 
-                <DoughnutChart 
+                <DoughnutChart
                   transactions={monthlyTransactions}
                   outgoingTransactionsProps={monthlyOutgoingTransactions} />
 
