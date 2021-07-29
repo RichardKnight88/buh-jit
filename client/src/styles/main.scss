@@ -51,6 +51,8 @@ body {
 
 .addTransactionButtonCol {
   padding: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .credit {
@@ -111,7 +113,7 @@ thead {
 
 }
 
-td {
+td, th {
   text-align: center;
 }
 
