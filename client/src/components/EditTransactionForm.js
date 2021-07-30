@@ -23,7 +23,7 @@ const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
 
     setFormData(transaction)
 
-  }, [])
+  }, [transaction])
 
   const handleSubmit = (event) => {
     event.preventDefault()

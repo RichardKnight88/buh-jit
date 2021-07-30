@@ -23,7 +23,7 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, 
       setTransaction(transactionData)
     }
     accessTransaction()
-  }, [rerenderToggle])
+  }, [rerenderToggle, transactionId])
 
   // transaction && console.log('ID', transaction)
 

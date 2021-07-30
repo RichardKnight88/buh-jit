@@ -1,7 +1,7 @@
 import React, { useEffect, useState, getData } from 'react'
 import { Form, Row, Col, Button, Container, Modal, Toast, ToastContainer, Tooltip, OverlayTrigger } from 'react-bootstrap'
 // import { Typeahead } from 'react-bootstrap-typeahead'
-import { useLocation, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { getTokenFromLocalStorage } from './auth/helpers/tokenfunctions'
 
@@ -11,7 +11,6 @@ const TransactionForm = ({ rerender }) => {
 
   // console.log('RERENDER', rerender )
 
-  const location = useLocation()
   const history = useHistory()
 
   const [repeatStatus, setRepeatStatus] = useState(false)
@@ -145,9 +144,9 @@ const TransactionForm = ({ rerender }) => {
     setShowModal(false)
   }
 
-  const handleFocus = (event) => {
-    console.log(event)
-  }
+  // const handleFocus = (event) => {
+  //   console.log(event)
+  // }
 
 
   const handleClose = () => setShowModal(false)

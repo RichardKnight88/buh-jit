@@ -199,7 +199,7 @@ const Dashboard = () => {
 
           <Container>
 
-            <Row>
+            <Row className="dashbaordContainerRow">
 
               <Col md={12} lg={6}>
 
@@ -302,6 +302,8 @@ const Dashboard = () => {
               <Col md={12} lg={6}>
 
                 <Container className="doughnutContainer">
+
+                  <h2>Spending Breakdown</h2>
 
                   <DoughnutChart
                     transactions={monthlyTransactions}

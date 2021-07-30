@@ -10,11 +10,29 @@ body {
   align-items: center
 }
 
+
+.screenshotCard, .homeRegistration{
+  margin-top: 50px;
+}
+
+.homeAlignment {
+  height: 90vh;
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.registrationFormHeading {
+  padding-top:20px;
+}
+
 .formDiv {
 
   .container {
     background-color: #fff;
-    margin: 50px auto;
+    // margin: 50px auto;
     border-radius: 10px;
     filter: drop-shadow(2px 2px 3px #ccc);
   } 
@@ -83,6 +101,9 @@ body {
   // display: flex;
   // align-items: center;
   margin-top: 10vh;
+  h2 {
+    text-align: center;
+  }
 }
 
 .tableBackground.container{
@@ -199,9 +220,7 @@ tbody {
 .popover-body.deletePopover{
   display: flex;
   justify-content: center;
-  .btn {
-    // margin: 10px;
-  }
+  
 }
 
 @media (min-width: 992px) {
@@ -220,5 +239,10 @@ tbody {
   
   .dateFieldContainer {
     width: 100%;
+  }
+
+  .dashbaordContainerRow {
+    display: flex;
+    flex-direction: column-reverse;
   }
 }

@@ -5,6 +5,7 @@ import Profile from './components/auth/Profile'
 import Register from './components/auth/Register'
 import Dashboard from './components/Dashboard'
 import TransactionForm from './components/TransactionForm'
+import Home from './components/Home'
 
 const App = () => {
 
@@ -52,7 +53,7 @@ const App = () => {
 
 
           <Route path='/'>
-            <h1>Hello World</h1>
+            <Home />
           </Route>
 
 

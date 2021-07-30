@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Form, Button, Row, Col, Container } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container, Toast } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 
 const Register = () => {
@@ -17,6 +17,7 @@ const Register = () => {
 
   const history = useHistory()
 
+
   const handleChange = async (event) => {
     // console.log('EVENT', event.target.name, 'VALUE', event.target.value)
     const newFormData = { ...formData, [event.target.name]: event.target.value }
@@ -25,16 +26,35 @@ const Register = () => {
   }
 
 
+  const clearForm = () => {
+
+    const clearingForm = {
+      username: '',
+      email: '',
+      first_name: '',
+      last_name: '',
+      password: '',
+      password_confirmation: '',
+    }
+
+    setFormData(clearingForm)
+  }
+
+
+
   const handleSubmit = async (event) => {
     event.preventDefault()
 
     try {
       const { data } = await axios.post('/api/auth/register/', formData)
       // console.log('DATA', data)
+      // window.localStorage.setItem('token', data.token)
+      history.push('/')
 
-      history.push('/profile')
+      console.log(data.message)
 
-      console.log(data)
+      event.target.reset()
+      clearForm()
 
     } catch (err) {
       console.log(err.response.statusText)
@@ -45,9 +65,14 @@ const Register = () => {
 
   return (
 
-    <div className="formDiv">
+    <div className="formDiv homeRegistration">
       <Container>
+
         <Form onSubmit={handleSubmit}>
+          <div className="registrationFormHeading">
+            <h2>Sign up!</h2>
+          </div>
+
           <Form.Group className="mb-3 pt-4" controlId="formBasicUsername">
             <Form.Label>Create a Username</Form.Label>
             <Form.Control
@@ -56,6 +81,7 @@ const Register = () => {
               placeholder="Enter Username"
               onChange={handleChange}
               value={formData.username}
+              required
             />
           </Form.Group>
 
@@ -67,6 +93,7 @@ const Register = () => {
               placeholder="Enter email"
               onChange={handleChange}
               value={formData.email}
+              required
             />
           </Form.Group>
 
@@ -81,6 +108,7 @@ const Register = () => {
                   placeholder="First name"
                   onChange={handleChange}
                   value={formData.first_name}
+                  required
                 />
               </Col>
               <Col>
@@ -91,6 +119,7 @@ const Register = () => {
                   placeholder="Last name"
                   onChange={handleChange}
                   value={formData.last_name}
+                  required
                 />
               </Col>
             </Row>
@@ -103,7 +132,9 @@ const Register = () => {
               name="password"
               placeholder="Password"
               onChange={handleChange}
-              value={formData.password} />
+              value={formData.password}
+              required
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPasswordConfirmation">
@@ -113,7 +144,9 @@ const Register = () => {
               name="password_confirmation"
               placeholder="Password Confirmation"
               onChange={handleChange}
-              value={formData.password_confirmation} />
+              value={formData.password_confirmation}
+              required
+            />
           </Form.Group>
 
           <div className="d-grid gap-2 pb-4">
