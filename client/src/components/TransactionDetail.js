@@ -4,13 +4,14 @@ import { Modal, Card, ListGroup, ListGroupItem, Container, Row, Col, OverlayTrig
 import { getIndividualTransaction, deleteTransaction, transformDate } from './auth/helpers/tokenfunctions'
 import EditTransactionForm from './EditTransactionForm'
 
-const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, rerender }) => {
+const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, rerender, rerenderToggle }) => {
 
   const history = useHistory()
   const location = useLocation()
 
   const [transaction, setTransaction] = useState(null)
-  const [deleteToast, setDeleteToast] = useState(false)
+  const [editHidden, setEditHidden] = useState('hidden')
+  const [cardHidden, setCardHidden] = useState('')
 
 
   // console.log('ID', transactionId)
@@ -22,16 +23,23 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, 
       setTransaction(transactionData)
     }
     accessTransaction()
-  }, [])
+  }, [rerenderToggle])
 
-  transaction && console.log('ID', transaction)
+  // transaction && console.log('ID', transaction)
 
-  const showDeleteToast = () => setDeleteToast(true)
-  const hideDeleteToast = () => setDeleteToast(false)
+  // const showDeleteToast = () => setToggleHidden(true)
+  // const hideDeleteToast = () => setToggleHidden(false)
 
-  const editTransaction = () => {
-    console.log('CLICK', location)
-    showDeleteToast()
+
+
+  const hiddenToggles = () => {
+    if (cardHidden === '') {
+      setCardHidden('hidden')
+      setEditHidden('')
+    } else {
+      setCardHidden('')
+      setEditHidden('hidden')
+    }
   }
 
   const confirmDelete = () => {
@@ -46,17 +54,29 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, 
   }
 
 
+
+
+
   return (
 
     <>
       <Modal
         show={showTransactionDetail}
-        onHide={handleClose}>
+        onHide={handleClose}
+        backdrop="static"
+      >
 
         {transaction &&
           <>
-            <EditTransactionForm transaction={transaction} />
-            <Container>
+            <div className={editHidden}>
+
+              <EditTransactionForm 
+                transaction={transaction} 
+                hiddenToggles={hiddenToggles}
+                rerender={rerender}
+              />
+            </div>
+            <Container className={cardHidden}>
               <Card className="transactionCard">
 
                 <Card.Header as="h5">
@@ -64,7 +84,7 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, 
                   <Row>
                     <Col><strong>Transaction ID:</strong> {transaction.id}</Col>
 
-                    <Col xs={2} sm={1}><i className="far fa-edit" onClick={editTransaction}></i></Col>
+                    <Col xs={2} sm={1}><i className="far fa-edit" onClick={hiddenToggles}></i></Col>
 
                     <OverlayTrigger
                       trigger="click"
@@ -84,7 +104,7 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, 
 
                         </Popover >}
                     >
-                      <Col xs={2} sm={1}><i className="far fa-trash-alt" onClick={editTransaction}></i></Col>
+                      <Col xs={2} sm={1}><i className="far fa-trash-alt"></i></Col>
                     </OverlayTrigger>
                   </Row>
 

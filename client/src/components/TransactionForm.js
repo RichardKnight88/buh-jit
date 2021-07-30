@@ -9,7 +9,7 @@ import { getTokenFromLocalStorage } from './auth/helpers/tokenfunctions'
 
 const TransactionForm = ({ rerender }) => {
 
-  console.log('RERENDER', rerender )
+  // console.log('RERENDER', rerender )
 
   const location = useLocation()
   const history = useHistory()

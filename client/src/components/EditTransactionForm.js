@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Modal, Form, Container, Col, Row, Button } from 'react-bootstrap'
+import { Form, Container, Col, Row, Button } from 'react-bootstrap'
+import { editTransaction } from './auth/helpers/tokenfunctions'
 
-const EditTransactionForm = ({ transaction }) => {
+const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
 
 
   const transactionTypes = ['Outgoing', 'Incoming']
@@ -24,12 +25,17 @@ const EditTransactionForm = ({ transaction }) => {
 
   }, [])
 
-  const handleSubmit = () => {
-    console.log('SUBMIT')
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    editTransaction(transaction.id, formData)
+    setTimeout(() => {
+      rerender()
+      hiddenToggles()
+    }, 300)
   }
 
   const handleChange = async (event) => {
-    console.log('EVENT', event, 'TARGET', event.target)
+    // console.log('EVENT', event, 'TARGET', event.target)
 
     if (event.target && event.target.name === 'repeat') {
       event.target.value = event.target.checked
@@ -37,17 +43,18 @@ const EditTransactionForm = ({ transaction }) => {
       setRepeatStatus(newRepeatStatus)
     }
 
+
     const newFormData = { ...formData, [event.target.name]: event.target.value }
-    console.log('FORM DATA', newFormData)
+    // console.log('FORM DATA', newFormData)
     setFormData(newFormData)
   }
 
-  const handleReset = () => {
-    console.log('RESET')
-  }
+
+  // console.log('TRANSACTION TO EDIT')
 
 
-  console.log('TRANSACTION TO EDIT')
+
+
   return (
 
     // <Modal
@@ -152,7 +159,7 @@ const EditTransactionForm = ({ transaction }) => {
                 <Form.Select
                   name="label"
                   // initialValue="Select Transaction Type"
-                  defaultValue="None"
+                  defaultValue={formData.label}
                   required
                   onChange={handleChange}
                 >
@@ -227,7 +234,7 @@ const EditTransactionForm = ({ transaction }) => {
 
 
               <div className="d-grid gap-2 pb-1">
-                <Button variant="outline-secondary" onClick={handleReset}
+                <Button variant="outline-secondary" onClick={hiddenToggles}
                 // onClick={cancelNewTransaction}
                 >
                   Cancel

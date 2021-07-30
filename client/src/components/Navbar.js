@@ -68,7 +68,7 @@ const NavbarComponent = () => {
                 <NavDropdown title={`Logged in as ${username}`} id="basic-nav-dropdown">
                   {/* <NavDropdown.Item href="/profile">Profile</NavDropdown.Item> */}
 
-                  <NavDropdown.Divider />
+                  {/* <NavDropdown.Divider /> */}
 
                   <NavDropdown.Item
                     onClick={handleLogout}>

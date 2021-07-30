@@ -81,6 +81,22 @@ export const deleteTransaction = async (transactionId) => {
 }
 
 
+export const editTransaction = async (transactionId, dataToSubmit) => {
+
+  try {
+    await axios.put(`/api/transactions/${transactionId}/`, dataToSubmit,
+      {
+        headers: {
+          Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+        },
+      }
+    )
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+
 export const transformDate = (dateInfo) => {
   return new Date(dateInfo)
 }

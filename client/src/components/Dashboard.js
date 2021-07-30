@@ -98,7 +98,7 @@ const Dashboard = () => {
     //   const outgoingTransactions = monthlyTransactions.filter(item => {
     //     return item.transaction_type === 'Outgoing'
     //   })
-    console.log('TRANSACTION FILTERS RUNNING AGAIN')
+    // console.log('TRANSACTION FILTERS RUNNING AGAIN')
     // }
 
   }, [currentUser, displayMonth])
