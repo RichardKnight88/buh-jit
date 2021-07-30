@@ -72,7 +72,9 @@ const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
 
         <Container className="editTransactionForm">
           <div className="formDiv transactionForm">
-
+            <Container className="editTransactionFormHeading">
+              <h4>Editing Transaction {formData.id}</h4>
+            </Container>
             <Form
               onSubmit={handleSubmit}
             >
@@ -243,7 +245,7 @@ const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
 
               <div className="d-grid gap-2 pb-4">
                 <Button variant="outline-success" type="submit">
-                  Add Transaction
+                  Confirm Changes
                 </Button>
               </div>
 
