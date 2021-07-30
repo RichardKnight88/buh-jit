@@ -159,9 +159,9 @@ const Dashboard = () => {
 
   const displayBalance = () => {
     if (monthlyIncomingSum - monthlyOutgoingSum <= 0) {
-      return `- £${Math.abs(monthlyIncomingSum - monthlyOutgoingSum)}`
+      return `- £${Math.abs(monthlyIncomingSum - monthlyOutgoingSum).toFixed(2)}`
     } else {
-      return `£${monthlyIncomingSum - monthlyOutgoingSum}`
+      return `£${(monthlyIncomingSum - monthlyOutgoingSum).toFixed(2)}`
     }
   }
 
@@ -196,114 +196,119 @@ const Dashboard = () => {
 
       {currentUser &&
         <>
-        
+
           <Container>
 
             <Row>
 
               <Col md={12} lg={6}>
 
-                <Container className="tableBackground">
-                  <Row className="dashboardHeaderRow">
-                    <Col className="addTransactionButtonCol"></Col>
-                    <Col xs={9} className="dashboardHeading">
-                      {/* <h2>{currentUser.first_name} {currentUser.last_name}</h2> */}
-                      <h2>Monthly Balance</h2>
+                <div className="dashboardTableContainer">
+                  <Container className="tableBackground">
+                    <Row className="dashboardHeaderRow">
+                      <Col className="addTransactionButtonCol"></Col>
+                      <Col xs={9} className="dashboardHeading">
+                        {/* <h2>{currentUser.first_name} {currentUser.last_name}</h2> */}
+                        <h2>Monthly Balance</h2>
 
-                      <h2>{displayBalance()}</h2>
-                    </Col>
+                        <h2>{displayBalance()}</h2>
+                      </Col>
 
-                    <Col className="addTransactionButtonCol">
-                      <TransactionForm 
-                        // {...currentUser} 
-                        rerender={rerender}
-                      />
-                    </Col>
-                  </Row>
+                      <Col className="addTransactionButtonCol">
+                        <TransactionForm
+                          // {...currentUser} 
+                          rerender={rerender}
+                        />
+                      </Col>
+                    </Row>
 
-                  <Container className="monthYearToggle">
-                    {/* <Row> */}
-                    <Button
-                      variant="secondary"
-                      className="togglButton leftButton"
-                      onClick={toggleLeft}>
-                      <i className="fas fa-caret-left fa-2x"></i>
-                    </Button>
+                    <Container className="monthYearToggle">
+                      {/* <Row> */}
+                      <Button
+                        variant="secondary"
+                        className="togglButton leftButton"
+                        onClick={toggleLeft}>
+                        <i className="fas fa-caret-left fa-2x"></i>
+                      </Button>
 
-                    <div className="monthYear">
+                      <div className="monthYear">
 
-                      {/* <h2>{monthsStr[displayMonth][0]}{monthsStr[displayMonth][1]}{monthsStr[displayMonth][2]} {displayYear}</h2> */}
-                      <h2>{monthsStr[displayMonth]} {displayYear}</h2>
+                        {/* <h2>{monthsStr[displayMonth][0]}{monthsStr[displayMonth][1]}{monthsStr[displayMonth][2]} {displayYear}</h2> */}
+                        <h2>{monthsStr[displayMonth]} {displayYear}</h2>
 
-                    </div>
+                      </div>
 
-                    <Button
-                      variant="secondary"
-                      className="togglButton rightButton"
-                      onClick={toggleRight}>
-                      <i className="fas fa-caret-right fa-2x"></i>
-                    </Button>
-                    {/* </Row> */}
+                      <Button
+                        variant="secondary"
+                        className="togglButton rightButton"
+                        onClick={toggleRight}>
+                        <i className="fas fa-caret-right fa-2x"></i>
+                      </Button>
+                      {/* </Row> */}
+                    </Container>
+
+
+
+                    {/* <div className="formDiv"> */}
+
+                    <Table bordered responsive hover>
+
+                      <thead>
+                        <tr>
+                          {/* <th></th> */}
+                          <th md="auto">Date</th>
+                          <th md="auto">Amount</th>
+                          <th md="auto">From/To</th>
+                          <th md="auto">In/Out</th>
+                          <th md="auto">Label</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {monthlyTransactions.length < 1 ? <tr>
+                          <td colSpan={6}>No transaction yet.</td>
+                        </tr>
+                          :
+                          monthlyTransactions.map((item, index) => {
+                            return (
+
+                              <tr key={index} className={tableRowFill(index)} onClick={checkClick}>
+                                {/* <td><i className="far fa-edit"></i></td> */}
+                                <td value={item.id}>{transformDate(item.transaction_date).getDate()}</td>
+                                {/* <td>{item.transaction_date}</td> */}
+
+                                {item.transaction_type === 'Incoming' ?
+                                  <td value={item.id} className="credit">£{item.amount}</td>
+                                  :
+                                  <td value={item.id} className>-£{item.amount}</td>
+                                }
+
+                                <td value={item.id}>{item.recipient_sender}</td>
+                                <td value={item.id}>{item.transaction_type}</td>
+                                <td value={item.id}>{item.label}</td>
+
+                              </tr>
+
+                            )
+                          })
+
+                        }
+                      </tbody>
+                    </Table>
+
                   </Container>
-
-
-
-                  {/* <div className="formDiv"> */}
-
-                  <Table bordered responsive hover>
-
-                    <thead>
-                      <tr>
-                        {/* <th></th> */}
-                        <th md="auto">Date</th>
-                        <th md="auto">Amount</th>
-                        <th md="auto">From/To</th>
-                        <th md="auto">In/Out</th>
-                        <th md="auto">Label</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {monthlyTransactions.length < 1 ? <tr>
-                        <td colSpan={6}>No transaction yet.</td>
-                      </tr>
-                        :
-                        monthlyTransactions.map((item, index) => {
-                          return (
-
-                            <tr key={index} className={tableRowFill(index)} onClick={checkClick}>
-                              {/* <td><i className="far fa-edit"></i></td> */}
-                              <td value={item.id}>{transformDate(item.transaction_date).getDate()}</td>
-                              {/* <td>{item.transaction_date}</td> */}
-
-                              {item.transaction_type === 'Incoming' ?
-                                <td value={item.id} className="credit">£{item.amount}</td>
-                                :
-                                <td value={item.id} className>-£{item.amount}</td>
-                              }
-
-                              <td value={item.id}>{item.recipient_sender}</td>
-                              <td value={item.id}>{item.transaction_type}</td>
-                              <td value={item.id}>{item.label}</td>
-
-                            </tr>
-
-                          )
-                        })
-
-                      }
-                    </tbody>
-                  </Table>
-
-                </Container>
-
+                </div>
               </Col>
 
-              <Col md={12} lg={4}>
+              <Col md={12} lg={6}>
 
-                <DoughnutChart
-                  transactions={monthlyTransactions}
-                  outgoingTransactionsProps={monthlyOutgoingTransactions} />
+                <Container className="doughnutContainer">
 
+                  <DoughnutChart
+                    transactions={monthlyTransactions}
+                    outgoingTransactionsProps={monthlyOutgoingTransactions} />
+
+
+                </Container>
 
               </Col>
             </Row>

@@ -25,3 +25,6 @@ class Transaction(models.Model):
     #     # null=True,
     #     blank=True,
     # )
+
+    def __str__(self):
+        return f'{self.transaction_date} - {self.amount} - {self.recipient_sender} - {self.description}'

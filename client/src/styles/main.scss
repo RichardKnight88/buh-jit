@@ -70,6 +70,21 @@ body {
   color: #008000;
 }
 
+.dashboardTableContainer {
+  // height: 100vh;
+  // display: flex;
+  // align-items: center;
+  margin-top: 10vh;
+
+}
+
+.doughnutContainer {
+  // height: 100vh;
+  // display: flex;
+  // align-items: center;
+  margin-top: 10vh;
+}
+
 .tableBackground.container{
   display: flex;
   flex-direction: column;
@@ -138,6 +153,9 @@ tbody {
     }
   }
 }
+
+
+
 
 .transactionCard {
   margin: 15px auto;
