@@ -1,17 +1,23 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react'
-import { Container, Card, Col, Row } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Container, Card, Col, Row, ToastContainer, Toast } from 'react-bootstrap'
 import dashboardScreenshot from '../images/dashboardScreenshot.png'
 import Register from './auth/Register'
 
 const Home = () => {
 
+
   const screenshot = dashboardScreenshot
+
+  
 
   return (
 
     <Container className="homeAlignment">
+
       <Row>
+
+
         <Col sm={10} lg={7}>
           <Card className="screenshotCard">
             <Card.Header as="h2">Need a budgeting App?</Card.Header>
@@ -26,6 +32,7 @@ const Home = () => {
         </Col>
 
         <Col sm={7} lg={5}>
+
           <Register />
         </Col>
 

@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Form, Button, Row, Col, Container, Toast } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container, Toast, ToastContainer } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 
 const Register = () => {
+
+
+  const [showToast, setShowToast] = useState(false)
 
 
   const [formData, setFormData] = useState({
@@ -41,6 +44,10 @@ const Register = () => {
   }
 
 
+  const registrationToast = () => {
+    setShowToast(true)
+  }
+
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -55,9 +62,10 @@ const Register = () => {
 
       event.target.reset()
       clearForm()
+      registrationToast()
 
     } catch (err) {
-      console.log(err.response.statusText)
+      console.log(err)
       // setErrors(err.response.data.message)
     }
   }
@@ -69,6 +77,22 @@ const Register = () => {
       <Container>
 
         <Form onSubmit={handleSubmit}>
+
+          <ToastContainer position="middle-center">
+            <Toast
+              style={{
+                backgroundColor: '#b3ffb3',
+                top: '56px',
+              }}
+              onClose={() => setShowToast(false)}
+              show={showToast}
+              delay={2000}
+              autohide>
+              <Toast.Body>
+                <strong>Registration Successful. Login up there ⬆︎</strong>
+              </Toast.Body>
+            </Toast>
+          </ToastContainer>
           <div className="registrationFormHeading">
             <h2>Sign up!</h2>
           </div>
