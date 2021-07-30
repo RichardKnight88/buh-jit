@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { Modal, Card, ListGroup, ListGroupItem, Container, Row, Col, OverlayTrigger, Popover, Button } from 'react-bootstrap'
 import { getIndividualTransaction, deleteTransaction, transformDate } from './auth/helpers/tokenfunctions'
+import EditTransactionForm from './EditTransactionForm'
 
 const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, rerender }) => {
 
@@ -46,6 +47,7 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, 
 
 
   return (
+
     <>
       <Modal
         show={showTransactionDetail}
@@ -53,6 +55,7 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, 
 
         {transaction &&
           <>
+            <EditTransactionForm transaction={transaction} />
             <Container>
               <Card className="transactionCard">
 

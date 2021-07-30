@@ -4,6 +4,7 @@
 
 body {
   background-color: #eeeeee;
+  background-color: #000;
 }
 
 .navbar-nav {
@@ -20,7 +21,7 @@ body {
   } 
 }
 
-.formDiv.transactionForm {
+.formDiv.transactionForm, .container.editTransactionForm  {
   // width: 450px;
   .container {
     background: none;
@@ -30,6 +31,11 @@ body {
     padding-right: 0;
   }
 }
+
+// .container.editTransactionForm {
+//   display: flex;
+//   justify-content: center;
+// }
 
 .dateFieldContainer {
   width: 201px;
