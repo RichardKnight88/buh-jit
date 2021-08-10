@@ -5,49 +5,30 @@ import { Doughnut } from 'react-chartjs-2'
 const DoughnutChart = ({ transactions, outgoingTransactionsProps }) => {
 
   const [labelsArray, setLabelsArray] = useState([])
-  const [transactionsArray, setTransactionsArray] = useState(null)
-
-  // console.log('ALL TRANS IN DOUGHNUT', transactions)
-  // console.log('OUT IN DOUGHNUT', outgoingTransactionsProps)
-  // console.log(typeof (transactions))
-
-  // setTransactionsArray(transactions)
-
-  // transactionsArray && transactionsArray.map(item => {
-  //   return console.log(item.id)
-  // })
 
 
-  // const outgoingTransactions = transactions.transactions.filter(item => {
-  //   return item.transaction_type === 'Outgoing'
-  // })
-  // const outgoingTransactions = transactions.filter(item => {
-  //   return item.transaction_type === 'Outgoing'
-  // })
 
-
-  const uniqueValues = []
-  const getLabels = () => {
-    outgoingTransactionsProps.map(item => {
-      // console.log('TYPE', typeof (item.label))
-      // console.log('INDEX', uniqueValues.indexOf(item.label))
-      if (uniqueValues.indexOf(item.label) < 0) {
-        uniqueValues.push(item.label)
-      }
-      // console.log('UNIQUE VALUES', uniqueValues)
-
-      if (outgoingTransactionsProps.length > 0) {
-        setLabelsArray(uniqueValues)
-      } else {
-        setLabelsArray([])
-      }
-    })
-  }
 
   useEffect(() => {
 
+    const uniqueValues = []
+
+    const getLabels = () => {
+      outgoingTransactionsProps.map(item => {
+        if (uniqueValues.indexOf(item.label) < 0) {
+          uniqueValues.push(item.label)
+        }
+
+        if (outgoingTransactionsProps.length > 0) {
+          setLabelsArray(uniqueValues)
+        } else {
+          setLabelsArray([])
+        }
+      })
+    }
+
     getLabels()
-  }, [transactions])
+  }, [transactions, outgoingTransactionsProps])
 
 
 
@@ -77,12 +58,12 @@ const DoughnutChart = ({ transactions, outgoingTransactionsProps }) => {
   // console.log('VALUES', values)
 
   const data = {
-    
+
     labels: labelsArray,
     datasets: [
       {
         data: values,
-        
+
         backgroundColor: [
           'rgba(153, 0, 153, 1)',
           'rgba(255, 206, 86, 1)',
@@ -109,12 +90,12 @@ const DoughnutChart = ({ transactions, outgoingTransactionsProps }) => {
   }
 
   const altData = {
-    
+
     labels: ['No Transactions Yet'],
     datasets: [
       {
         data: [1],
-        
+
         backgroundColor: [
           '#bbb'
         ],

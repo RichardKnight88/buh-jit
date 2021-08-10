@@ -3,7 +3,7 @@ import { OverlayTrigger, Popover, Nav } from 'react-bootstrap'
 import LoginForm from './loginForm'
 
 
-const LoginToast = (history) => {
+const LoginToast = () => {
 
 
 

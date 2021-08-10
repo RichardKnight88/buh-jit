@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
-// import axios from 'axios'
-import { useLocation, useHistory } from 'react-router-dom'
 import TransactionForm from './TransactionForm'
 import TransactionDetail from './TransactionDetail'
-import { Modal, Button, Container, Table, Col, Row } from 'react-bootstrap'
+import { Button, Container, Table, Col, Row } from 'react-bootstrap'
 import DoughnutChart from './DoughnutChart'
 import { transformDate } from './auth/helpers/tokenfunctions'
 
@@ -11,9 +9,6 @@ import { getCurrentUser } from './auth/helpers/tokenfunctions'
 
 
 const Dashboard = () => {
-
-  const location = useLocation()
-  const history = useHistory()
 
 
   const [currentUser, setCurrentUser] = useState(null)
@@ -33,14 +28,10 @@ const Dashboard = () => {
 
   const currentDate = new Date()
 
-  // console.log(currentDate)
-  // console.log(currentDate.toDateString())
 
   const currentMonth = currentDate.getMonth()
 
-  // console.log('CURRENT MONTH', currentMonth)
 
-  const currentYear = currentDate.getFullYear()
 
   const monthsStr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -55,7 +46,7 @@ const Dashboard = () => {
     setDisplayMonth(currentMonth)
     setDisplayYear(currentDate.getFullYear())
 
-  }, [rerenderToggle])
+  }, [rerenderToggle, currentDate, currentMonth])
 
 
 

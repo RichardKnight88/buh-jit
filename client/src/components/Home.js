@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react'
-import { Container, Card, Col, Row, ToastContainer, Toast } from 'react-bootstrap'
+import React from 'react'
+import { Container, Card, Col, Row } from 'react-bootstrap'
 import dashboardScreenshot from '../images/dashboardScreenshot.png'
 import Register from './auth/Register'
 
