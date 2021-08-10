@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import django_on_heroku
 import os
 from pathlib import Path
 
@@ -151,3 +152,5 @@ STATIC_URL = '/static/' # same with this
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'client', "build", "static"),
 )
+
+django_on_heroku.settings(locals())
