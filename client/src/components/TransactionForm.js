@@ -1,6 +1,5 @@
-import React, { useEffect, useState, getData } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Row, Col, Button, Container, Modal, Toast, ToastContainer, Tooltip, OverlayTrigger } from 'react-bootstrap'
-// import { Typeahead } from 'react-bootstrap-typeahead'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { getTokenFromLocalStorage } from './auth/helpers/tokenfunctions'
@@ -9,13 +8,10 @@ import { getTokenFromLocalStorage } from './auth/helpers/tokenfunctions'
 
 const TransactionForm = ({ rerender }) => {
 
-  // console.log('RERENDER', rerender )
 
   const history = useHistory()
 
   const [repeatStatus, setRepeatStatus] = useState(false)
-
-  const [monthsNums, setMonthsNums] = useState([])
 
   const [showModal, setShowModal] = useState(false)
 
@@ -43,17 +39,7 @@ const TransactionForm = ({ rerender }) => {
 
   const repeatFrequency = ['Daily', 'Every Week', 'Every 2 Weeks', 'Every 4 Weeks', 'Monthly', 'Quarterly', 'Annually']
 
-  const monthsStr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-  useEffect(() => {
-    const populateMonths = []
-    for (let i = 1; i < 13; i++) {
-      populateMonths.push(i)
-    }
-    setMonthsNums(populateMonths)
-  }, [])
-
-  // console.log('MONTHS', monthsNums)
 
   useEffect(() => {
     console.log('REPEAT STATUS', repeatStatus)
@@ -90,7 +76,7 @@ const TransactionForm = ({ rerender }) => {
     // console.log('REPEAT', formData.repeat)
 
     try {
-      const { data } = await axios.post('/api/transactions/', formData,
+      await axios.post('/api/transactions/', formData,
         {
           headers: {
             Authorization: `Bearer ${getTokenFromLocalStorage()}`,
@@ -107,7 +93,6 @@ const TransactionForm = ({ rerender }) => {
       setTimeout(() => {
         rerender()
       },300)
-      console.log(data)
 
     } catch (err) {
       console.log(err)
@@ -137,9 +122,6 @@ const TransactionForm = ({ rerender }) => {
 
   const handleReset = (event) => {
     event.preventDefault()
-    // console.log('RESET', event.target)
-    // event.target.reset()
-    // console.log('RESET', event.target)
     clearForm()
     setShowModal(false)
   }

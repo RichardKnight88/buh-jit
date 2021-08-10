@@ -1,0 +1,1332 @@
+[
+{
+  "model": "transactions.transaction",
+  "pk": 68,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "Alphera",
+    "label": "Car",
+    "description": "Car payment",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 69,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "Alphera",
+    "label": "Car",
+    "description": "Car payment",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-08-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 70,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "Alphera",
+    "label": "Car",
+    "description": "Car payment",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-09-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 71,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "Alphera",
+    "label": "Car",
+    "description": "Car payment",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-10-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 72,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "Alphera",
+    "label": "Car",
+    "description": "Car payment",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-11-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 73,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "Alphera",
+    "label": "Car",
+    "description": "Car payment",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-12-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 74,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "Alphera",
+    "label": "Car",
+    "description": "Car payment",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-01-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 75,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "Alphera",
+    "label": "Car",
+    "description": "Car payment",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-02-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 76,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "Alphera",
+    "label": "Car",
+    "description": "Car payment",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-03-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 77,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "DVLA",
+    "label": "Car",
+    "description": "Car tax",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-03-10",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 78,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "DVLA",
+    "label": "Car",
+    "description": "Car tax",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-02-10",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 79,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "DVLA",
+    "label": "Car",
+    "description": "Car tax",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-01-10",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 80,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "DVLA",
+    "label": "Car",
+    "description": "Car tax",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-12-10",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 81,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "DVLA",
+    "label": "Car",
+    "description": "Car tax",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-11-10",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 82,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "DVLA",
+    "label": "Car",
+    "description": "Car tax",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-10-10",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 83,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "DVLA",
+    "label": "Car",
+    "description": "Car tax",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-09-10",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 84,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "DVLA",
+    "label": "Car",
+    "description": "Car tax",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-08-10",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 85,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "DVLA",
+    "label": "Car",
+    "description": "Car tax",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-10",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 86,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 1500.0,
+    "recipient_sender": "Landlord",
+    "label": "Rent",
+    "description": "Extortionate rent for a tiny flat.",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 90,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 1500.0,
+    "recipient_sender": "Landlord",
+    "label": "Rent",
+    "description": "Extortionate rent for a tiny flat.",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-08-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 91,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 1500.0,
+    "recipient_sender": "Landlord",
+    "label": "Rent",
+    "description": "Extortionate rent for a tiny flat.",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-09-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 92,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 1500.0,
+    "recipient_sender": "Landlord",
+    "label": "Rent",
+    "description": "Extortionate rent for a tiny flat.",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-10-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 93,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 1500.0,
+    "recipient_sender": "Landlord",
+    "label": "Rent",
+    "description": "Extortionate rent for a tiny flat.",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-11-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 98,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 1500.0,
+    "recipient_sender": "Landlord",
+    "label": "Rent",
+    "description": "Extortionate rent for a tiny flat.",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-01-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 99,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 1500.0,
+    "recipient_sender": "Landlord",
+    "label": "Rent",
+    "description": "Extortionate rent for a tiny flat.",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-02-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 100,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 1500.0,
+    "recipient_sender": "Landlord",
+    "label": "Rent",
+    "description": "Extortionate rent for a tiny flat.",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-03-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 101,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 1500.0,
+    "recipient_sender": "Landlord",
+    "label": "Rent",
+    "description": "Extortionate rent for a tiny flat.",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-12-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 103,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 48.36,
+    "recipient_sender": "Admiral",
+    "label": "Car",
+    "description": "Car Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-15",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 104,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 48.36,
+    "recipient_sender": "Admiral",
+    "label": "Car",
+    "description": "Car Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-08-15",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 106,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 48.36,
+    "recipient_sender": "Admiral",
+    "label": "Car",
+    "description": "Car Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-09-15",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 107,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 48.36,
+    "recipient_sender": "Admiral",
+    "label": "Car",
+    "description": "Car Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-10-15",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 108,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 48.36,
+    "recipient_sender": "Admiral",
+    "label": "Car",
+    "description": "Car Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-11-15",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 109,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 48.36,
+    "recipient_sender": "Admiral",
+    "label": "Car",
+    "description": "Car Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-12-15",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 110,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 48.36,
+    "recipient_sender": "Admiral",
+    "label": "Car",
+    "description": "Car Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-01-15",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 111,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 48.36,
+    "recipient_sender": "Admiral",
+    "label": "Car",
+    "description": "Car Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-02-15",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 112,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 48.36,
+    "recipient_sender": "Admiral",
+    "label": "Car",
+    "description": "Car Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-03-15",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 113,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 29.98,
+    "recipient_sender": "Zurich",
+    "label": "Other",
+    "description": "Life Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-03-12",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 114,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 29.98,
+    "recipient_sender": "Zurich",
+    "label": "Other",
+    "description": "Life Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-02-12",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 115,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 29.98,
+    "recipient_sender": "Zurich",
+    "label": "Other",
+    "description": "Life Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-01-12",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 116,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 29.98,
+    "recipient_sender": "Zurich",
+    "label": "Other",
+    "description": "Life Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-12-12",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 117,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 29.98,
+    "recipient_sender": "Zurich",
+    "label": "Other",
+    "description": "Life Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-11-12",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 118,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 29.98,
+    "recipient_sender": "Zurich",
+    "label": "Other",
+    "description": "Life Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-10-12",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 119,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 29.98,
+    "recipient_sender": "Zurich",
+    "label": "Other",
+    "description": "Life Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-09-12",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 120,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 29.98,
+    "recipient_sender": "Zurich",
+    "label": "Other",
+    "description": "Life Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-08-12",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 121,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 29.98,
+    "recipient_sender": "Zurich",
+    "label": "Other",
+    "description": "Life Insurance",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-12",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 122,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 20.0,
+    "recipient_sender": "GiffGaff",
+    "label": "Other",
+    "description": "Phone bill",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 123,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 20.0,
+    "recipient_sender": "GiffGaff",
+    "label": "Other",
+    "description": "Phone bill",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-08-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 124,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 20.0,
+    "recipient_sender": "GiffGaff",
+    "label": "Other",
+    "description": "Phone bill",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-09-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 125,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 20.0,
+    "recipient_sender": "GiffGaff",
+    "label": "Other",
+    "description": "Phone bill",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-10-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 126,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 20.0,
+    "recipient_sender": "GiffGaff",
+    "label": "Other",
+    "description": "Phone bill",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-11-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 127,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 20.0,
+    "recipient_sender": "GiffGaff",
+    "label": "Other",
+    "description": "Phone bill",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-12-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 128,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 20.0,
+    "recipient_sender": "GiffGaff",
+    "label": "Other",
+    "description": "Phone bill",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-01-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 129,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 20.0,
+    "recipient_sender": "GiffGaff",
+    "label": "Other",
+    "description": "Phone bill",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-02-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 130,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 20.0,
+    "recipient_sender": "GiffGaff",
+    "label": "Other",
+    "description": "Phone bill",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-03-28",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": "2022-03-28",
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 131,
+  "fields": {
+    "transaction_type": "Incoming",
+    "amount": 3000.0,
+    "recipient_sender": "Tech Inc.",
+    "label": "Salary",
+    "description": "Imaginary coding job",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-03-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": null,
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 132,
+  "fields": {
+    "transaction_type": "Incoming",
+    "amount": 3000.0,
+    "recipient_sender": "Tech Inc.",
+    "label": "Salary",
+    "description": "Imaginary coding job",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-02-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": null,
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 133,
+  "fields": {
+    "transaction_type": "Incoming",
+    "amount": 3000.0,
+    "recipient_sender": "Tech Inc.",
+    "label": "Salary",
+    "description": "Imaginary coding job",
+    "created_at": "2021-07-30",
+    "transaction_date": "2022-01-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": null,
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 134,
+  "fields": {
+    "transaction_type": "Incoming",
+    "amount": 3000.0,
+    "recipient_sender": "Tech Inc.",
+    "label": "Salary",
+    "description": "Imaginary coding job",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-12-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": null,
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 135,
+  "fields": {
+    "transaction_type": "Incoming",
+    "amount": 3000.0,
+    "recipient_sender": "Tech Inc.",
+    "label": "Salary",
+    "description": "Imaginary coding job",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-11-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": null,
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 136,
+  "fields": {
+    "transaction_type": "Incoming",
+    "amount": 3000.0,
+    "recipient_sender": "Tech Inc.",
+    "label": "Salary",
+    "description": "Imaginary coding job",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-10-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": null,
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 137,
+  "fields": {
+    "transaction_type": "Incoming",
+    "amount": 3000.0,
+    "recipient_sender": "Tech Inc.",
+    "label": "Salary",
+    "description": "Imaginary coding job",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-09-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": null,
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 138,
+  "fields": {
+    "transaction_type": "Incoming",
+    "amount": 3000.0,
+    "recipient_sender": "Tech Inc.",
+    "label": "Salary",
+    "description": "Imaginary coding job",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-08-01",
+    "repeat": true,
+    "repeat_frequency": "Monthly",
+    "repeat_until": null,
+    "transaction_day": null,
+    "skipped_months": null,
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 140,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 19.8,
+    "recipient_sender": "Shake-Shack",
+    "label": "Eating Out",
+    "description": "Shroom burger - again.",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-29",
+    "repeat": false,
+    "repeat_frequency": "",
+    "repeat_until": "",
+    "transaction_day": 0,
+    "skipped_months": "",
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 141,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 51.48,
+    "recipient_sender": "Ocado",
+    "label": "Groceries",
+    "description": "Weekly shop",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-05",
+    "repeat": false,
+    "repeat_frequency": "",
+    "repeat_until": "",
+    "transaction_day": 0,
+    "skipped_months": "",
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 142,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 66.81,
+    "recipient_sender": "Ocado",
+    "label": "Groceries",
+    "description": "Weekly shop",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-12",
+    "repeat": false,
+    "repeat_frequency": "",
+    "repeat_until": "",
+    "transaction_day": 0,
+    "skipped_months": "",
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 143,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 20.0,
+    "recipient_sender": "TfL",
+    "label": "Transport",
+    "description": "Oyster card top-up",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-19",
+    "repeat": false,
+    "repeat_frequency": "",
+    "repeat_until": "",
+    "transaction_day": 0,
+    "skipped_months": "",
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 144,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 20.0,
+    "recipient_sender": "TfL",
+    "label": "Transport",
+    "description": "Congestion Charge",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-26",
+    "repeat": false,
+    "repeat_frequency": "",
+    "repeat_until": "",
+    "transaction_day": 0,
+    "skipped_months": "",
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 145,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 33.96,
+    "recipient_sender": "Ocado",
+    "label": "Groceries",
+    "description": "Weekly shop",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-19",
+    "repeat": false,
+    "repeat_frequency": "",
+    "repeat_until": "",
+    "transaction_day": 0,
+    "skipped_months": "",
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 146,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 200.0,
+    "recipient_sender": "Some Hotel",
+    "label": "Eating Out",
+    "description": "Wedding drinks",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-22",
+    "repeat": false,
+    "repeat_frequency": "",
+    "repeat_until": "",
+    "transaction_day": 0,
+    "skipped_months": "",
+    "owner": 2
+  }
+},
+{
+  "model": "transactions.transaction",
+  "pk": 147,
+  "fields": {
+    "transaction_type": "Outgoing",
+    "amount": 10.0,
+    "recipient_sender": "Ineta",
+    "label": "Other",
+    "description": "Incredible coding idea.",
+    "created_at": "2021-07-30",
+    "transaction_date": "2021-07-14",
+    "repeat": false,
+    "repeat_frequency": "",
+    "repeat_until": "",
+    "transaction_day": 0,
+    "skipped_months": "",
+    "owner": 2
+  }
+}
+]

@@ -78,21 +78,6 @@ const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
             <Form
               onSubmit={handleSubmit}
             >
-              {/* 
-              <ToastContainer position="middle-center">
-                <Toast
-                  style={{
-                    backgroundColor: '#b3ffb3',
-                  }}
-                  onClose={() => setShowToast(false)}
-                  show={showToast}
-                  delay={2000}
-                  autohide>
-                  <Toast.Body>
-                    <strong>Transaction successfully added</strong>
-                  </Toast.Body>
-                </Toast>
-              </ToastContainer> */}
 
 
               <Row className="mb-3 pt-3">

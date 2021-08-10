@@ -9,7 +9,7 @@ from rest_framework.permissions import IsAuthenticated
 from .serializers.common import TransactionSerializer
 
 class TransactionListView(APIView):
-  
+
     permission_classes = (IsAuthenticated, )
     
     def post(self, request):
