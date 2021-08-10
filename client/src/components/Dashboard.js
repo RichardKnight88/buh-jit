@@ -141,10 +141,10 @@ const Dashboard = () => {
 
 
   const checkClick = (event) => {
-
+    console.log('click')
     const idAsString = event.target.outerHTML.toString().replace('<td value="', '').split('"')[0]
     const idAsInt = parseInt(idAsString)
-    // console.log('ID', idAsInt)
+    console.log('ID', idAsInt)
     setTransactionId(idAsInt)
     handleShow()
   }

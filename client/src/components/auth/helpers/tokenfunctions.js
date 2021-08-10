@@ -49,7 +49,7 @@ export const getIndividualTransaction = async (transactionId) => {
 
   try {
 
-    const { data } = await axios.get(`/api/transactions/${transactionId}`,
+    const { data } = await axios.get(`/api/transactions/${transactionId}/`,
       {
         headers: {
           Authorization: `Bearer ${getTokenFromLocalStorage()}`,
@@ -70,7 +70,7 @@ export const getIndividualTransaction = async (transactionId) => {
 export const deleteTransaction = async (transactionId) => {
 
   try {
-    await axios.delete(`/api/transactions/${transactionId}`, 
+    await axios.delete(`/api/transactions/${transactionId}/`, 
       {
         headers: {
           Authorization: `Bearer ${getTokenFromLocalStorage()}`,
