@@ -92,7 +92,7 @@ const TransactionForm = ({ rerender }) => {
 
       setTimeout(() => {
         rerender()
-      },300)
+      },500)
 
     } catch (err) {
       console.log(err)

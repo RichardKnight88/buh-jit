@@ -28,6 +28,7 @@ const DoughnutChart = ({ transactions, outgoingTransactionsProps }) => {
     }
 
     getLabels()
+    
   }, [transactions, outgoingTransactionsProps])
 
 

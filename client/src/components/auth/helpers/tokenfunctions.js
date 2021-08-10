@@ -23,6 +23,7 @@ export const getPayload = () => {
 export const getCurrentUser = async () => {
 
   const payload = getPayload()
+  console.log('PAYLOAD')
 
   if (!payload) return
 
@@ -36,7 +37,8 @@ export const getCurrentUser = async () => {
       },
     }
   )
-  console.log('GET REQ', data.transactions.length)
+  // console.log('GET REQ', data.transactions.length)
+  // console.log('GET REQ ONLY')
 
   return data
 

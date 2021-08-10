@@ -26,17 +26,16 @@ const Dashboard = () => {
   const [transactionId, setTransactionId] = useState(null)
   const [rerenderToggle, setRerenderToggle] = useState(false)
 
-  const currentDate = new Date()
-
-
-  const currentMonth = currentDate.getMonth()
-
-
 
   const monthsStr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 
   useEffect(() => {
+
+    const currentDate = new Date()
+
+    const currentMonth = currentDate.getMonth()
+
     const getCurrentUserData = async () => {
       const currentUserData = await getCurrentUser()
 
@@ -46,7 +45,7 @@ const Dashboard = () => {
     setDisplayMonth(currentMonth)
     setDisplayYear(currentDate.getFullYear())
 
-  }, [rerenderToggle, currentDate, currentMonth])
+  }, [rerenderToggle])
 
 
 
@@ -72,11 +71,6 @@ const Dashboard = () => {
         }
       })
 
-      // console.log('FILTERED TRANSACTIONS', filteredMonthTransactions)
-      // console.log('OUTGOING IN DASH', outgoingTransactions)
-      // console.log('INCOMING IN DASH', incomingTransactions)
-
-
       setMonthlyTransaction(filteredMonthTransactions)
       setMonthlyOutgoingTransaction(outgoingTransactions)
       setMonthlyIncomingTransaction(incomingTransactions)
@@ -85,14 +79,8 @@ const Dashboard = () => {
 
     currentUser && getMonthlyTransactions()
 
-    // if (monthlyTransactions) {
-    //   const outgoingTransactions = monthlyTransactions.filter(item => {
-    //     return item.transaction_type === 'Outgoing'
-    //   })
-    // console.log('TRANSACTION FILTERS RUNNING AGAIN')
-    // }
-
-  }, [currentUser, displayMonth])
+  
+  }, [currentUser, displayMonth, displayYear])
 
 
 
@@ -111,12 +99,7 @@ const Dashboard = () => {
       setMonthlyIncomingSum(getTotals(monthlyIncomingTransactions))
     }
 
-  }, [monthlyTransactions])
-
-  // console.log('TRANSACTIONS AS STATE', monthlyTransactions)
-  // console.log('DASH OUTGOING AS STATE', monthlyOutgoingTransactions)
-  // console.log('DASH INCOMING AS STATE', monthlyIncomingTransactions)
-  // console.log('BALANCE AS STATE', monthlyIncomingSum - monthlyOutgoingSum)
+  }, [monthlyTransactions, monthlyOutgoingTransactions, monthlyIncomingTransactions])
 
 
   const toggleLeft = () => {
