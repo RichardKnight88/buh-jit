@@ -6,7 +6,7 @@ Software Engineering Immersive Course || Project-4 || Individual Project || 1 we
 Buh-jit is a budgeting app that allows you to add transactions and visualise your spending month-to-month.
  
 <p align="center" >
- <img width="80%" src="./client/src/images/dashboardScreenshot.png" alt="American Were-Bee in London Title Screen"/>
+ <img width="80%" src="./client/src/images/dashboardScreenshot.png" alt="Bih-Jit Dashboard Screenshot"/>
 </p>
  
 [Buh-jit - Deployed App](https://bit.ly/buh-jit)
