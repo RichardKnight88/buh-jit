@@ -14,7 +14,7 @@ Buh-jit is a budgeting app that allows you to add transactions and visualise you
 ## Installation
 
 - Clone the repo
-- In route add/install ```pipenv```
+- In root add/install ```pipenv```
 - Move into shell with ```pipenv shell``` 
 - Make Migrations with ```python manage.py makemigrations```
 - Migrate with ```python manage.py migrate```
