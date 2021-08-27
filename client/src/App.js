@@ -9,14 +9,6 @@ import Home from './components/Home'
 
 const App = () => {
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const { data } = await axios('/api/household/1') // * <-- replace with your endpoint
-  //     // const data = await res.json()
-  //     console.log(data)
-  //   }
-  //   getData()
-  // }, [])
 
   return (
     <>

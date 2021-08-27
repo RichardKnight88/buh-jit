@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { Form, Button } from 'react-bootstrap'
 import { useHistory, useLocation } from 'react-router-dom'
-// import { handleChange } from './formFunctions'
 
 
 
@@ -20,29 +19,24 @@ const LoginForm = () => {
   const location = useLocation()
 
   const handleChange = async (event) => {
-    // console.log('EVENT', event.target.name, 'VALUE', event.target.value)
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     setFormData(newFormData)
 
   }
 
-  // console.log('LOCATION', location)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
 
     try {
       const { data } = await axios.post('/api/auth/login/', formData)
-      // console.log('DATA', data)
 
       setTokenToLocalStorage(data.token, data.username)
 
       history.push('/dashboard')
       location.pathname
-      console.log(data)
 
     } catch (err) {
-      console.log(err.response.data)
       setErrors(err.response.data.detail)
     }
   }
@@ -65,9 +59,6 @@ const LoginForm = () => {
           onChange={handleChange}
           value={formData.email}
         />
-        {/* <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text> */}
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">

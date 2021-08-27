@@ -4,7 +4,6 @@ import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
 import { primaryColor } from '../styles/elementStyles'
 import LoginToast from './auth/helpers/loginToast'
 import { getPayload, getUsernameFromLocalStorage } from './auth/helpers/tokenfunctions'
-// import axios from 'axios'
 
 
 const NavbarComponent = () => {
@@ -61,14 +60,10 @@ const NavbarComponent = () => {
               <LoginToast />
               :
               <>
-                {/* <Nav.Link href="/dashboard">Dashboard</Nav.Link> */}
 
                 <Nav.Link href="/dashboard" className="justify-content-start">Dashboard</Nav.Link>
 
                 <NavDropdown title={`Logged in as ${username}`} id="basic-nav-dropdown">
-                  {/* <NavDropdown.Item href="/profile">Profile</NavDropdown.Item> */}
-
-                  {/* <NavDropdown.Divider /> */}
 
                   <NavDropdown.Item
                     onClick={handleLogout}>

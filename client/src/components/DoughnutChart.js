@@ -39,24 +39,17 @@ const DoughnutChart = ({ transactions, outgoingTransactionsProps }) => {
 
     let total = 0
 
-    // console.log('LABEL', label)
-
     outgoingTransactionsProps.map(item => {
       if (item.label === label) {
-        // console.log('ITEM', item)
-        // console.log('AMOUNT', item.amount)
         return (
           total = total + item.amount
         )
       }
-      // console.log('RUNNING TOTAL', total)
 
     })
-    // console.log('FINAL TOTAL', total)
     values.push(total)
   })
 
-  // console.log('VALUES', values)
 
   const data = {
 

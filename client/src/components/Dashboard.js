@@ -141,18 +141,12 @@ const Dashboard = () => {
 
 
   const checkClick = (event) => {
-    console.log('click')
     const idAsString = event.target.outerHTML.toString().replace('<td value="', '').split('"')[0]
     const idAsInt = parseInt(idAsString)
-    console.log('ID', idAsInt)
     setTransactionId(idAsInt)
     handleShow()
   }
-  // const hoverCheck = (event) => {
-  //   console.log('hover', event)
-  // }
 
-  // console.log('<<<<ID>>>>', transactionId)
   const handleClose = () => setShowTransactionDetail(false)
   const handleShow = () => setShowTransactionDetail(true)
 
@@ -182,7 +176,7 @@ const Dashboard = () => {
                     <Row className="dashboardHeaderRow">
                       <Col className="addTransactionButtonCol"></Col>
                       <Col xs={9} className="dashboardHeading">
-                        {/* <h2>{currentUser.first_name} {currentUser.last_name}</h2> */}
+
                         <h2>Monthly Balance</h2>
 
                         <h2>{displayBalance()}</h2>
@@ -207,7 +201,7 @@ const Dashboard = () => {
 
                       <div className="monthYear">
 
-                        {/* <h2>{monthsStr[displayMonth][0]}{monthsStr[displayMonth][1]}{monthsStr[displayMonth][2]} {displayYear}</h2> */}
+
                         <h2>{monthsStr[displayMonth]} {displayYear}</h2>
 
                       </div>
@@ -221,9 +215,6 @@ const Dashboard = () => {
                       {/* </Row> */}
                     </Container>
 
-
-
-                    {/* <div className="formDiv"> */}
 
                     <Table bordered responsive hover>
 
@@ -246,9 +237,9 @@ const Dashboard = () => {
                             return (
 
                               <tr key={index} className={tableRowFill(index)} onClick={checkClick}>
-                                {/* <td><i className="far fa-edit"></i></td> */}
+
                                 <td value={item.id}>{transformDate(item.transaction_date).getDate()}</td>
-                                {/* <td>{item.transaction_date}</td> */}
+
 
                                 {item.transaction_type === 'Incoming' ?
                                   <td value={item.id} className="credit">£{item.amount}</td>
@@ -297,7 +288,6 @@ const Dashboard = () => {
             rerenderToggle={rerenderToggle}
           />
           }
-          {/* </div> */}
 
         </>
       }

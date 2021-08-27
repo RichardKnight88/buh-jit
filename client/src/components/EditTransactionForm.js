@@ -15,9 +15,6 @@ const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
   const [formData, setFormData] = useState(null)
   const [repeatStatus, setRepeatStatus] = useState(transaction.repeat)
 
-  console.log(transaction.repeat)
-  console.log(typeof (transaction.repeat))
-
 
   useEffect(() => {
 
@@ -35,7 +32,6 @@ const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
   }
 
   const handleChange = async (event) => {
-    // console.log('EVENT', event, 'TARGET', event.target)
 
     if (event.target && event.target.name === 'repeat') {
       event.target.value = event.target.checked
@@ -45,26 +41,11 @@ const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
 
 
     const newFormData = { ...formData, [event.target.name]: event.target.value }
-    // console.log('FORM DATA', newFormData)
     setFormData(newFormData)
   }
 
-
-  // console.log('TRANSACTION TO EDIT')
-
-
-
-
   return (
 
-    // <Modal
-    //   show={showModal}
-    //   onHide={handleClose}
-    //   backdrop="static">
-    //   <Modal.Header closeButton>
-    //     <Modal.Title>New Transaction</Modal.Title>
-    //   </Modal.Header>
-    //   <Modal.Body>
     <>
 
       {formData &&
@@ -86,12 +67,10 @@ const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
                   <Form.Label>Transaction Type</Form.Label>
                   <Form.Select
                     name="transaction_type"
-                    // initialValue="Select Transaction Type"
                     defaultValue={formData.transaction_type}
                     required
                     onChange={handleChange}
                   >
-                    {/* <option disabled>Select Transaction Type</option> */}
                     {transactionTypes.map((item, index) => {
                       return <option key={index}>{item}</option>
                     })}
@@ -145,7 +124,6 @@ const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
                 <Form.Label>Label</Form.Label>
                 <Form.Select
                   name="label"
-                  // initialValue="Select Transaction Type"
                   defaultValue={formData.label}
                   required
                   onChange={handleChange}
@@ -174,14 +152,10 @@ const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
                   name="repeat"
                   type="checkbox"
                   label="Recurring Transaction?"
-                  // value={repeatValue}
-                  // defaultValue={false}
                   onChange={handleChange}
                   checked={formData.repeat}
-                // onChange={setRepeatStatus(!repeatStatus)}
                 />
               </Form.Group>
-
 
               {repeatStatus &&
 
@@ -222,7 +196,6 @@ const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
 
               <div className="d-grid gap-2 pb-1">
                 <Button variant="outline-secondary" onClick={hiddenToggles}
-                // onClick={cancelNewTransaction}
                 >
                   Cancel
                 </Button>
@@ -239,8 +212,6 @@ const EditTransactionForm = ({ transaction, hiddenToggles, rerender }) => {
         </Container>
       }
     </>
-    //   </Modal.Body>
-    // </Modal>
   )
 }
 

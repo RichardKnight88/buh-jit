@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Form, Row, Col, Button, Container, Modal, Toast, ToastContainer, Tooltip, OverlayTrigger } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
@@ -29,7 +29,6 @@ const TransactionForm = ({ rerender }) => {
     transaction_date: '',
     transaction_day: 0,
     skipped_months: '',
-    // owner: currentUser.id,
   })
 
 
@@ -40,16 +39,7 @@ const TransactionForm = ({ rerender }) => {
   const repeatFrequency = ['Daily', 'Every Week', 'Every 2 Weeks', 'Every 4 Weeks', 'Monthly', 'Quarterly', 'Annually']
 
 
-
-  useEffect(() => {
-    console.log('REPEAT STATUS', repeatStatus)
-  }, [repeatStatus])
-
-  // console.log('USER AS PROPS', currentUser)
-
   const handleChange = async (event) => {
-    console.log('EVENT', event, 'TARGET', event.target)
-    console.log('EVENT TARGET', event.target, 'VALUE', event.target)
 
     if (event.target && event.target.name === 'repeat') {
       event.target.value = event.target.checked
@@ -57,23 +47,15 @@ const TransactionForm = ({ rerender }) => {
       setRepeatStatus(newRepeatStatus)
     }
 
-    // if (Array.isArray(event)) {
-    //   event.target.name = 'recipient_sender'
-    //   event.target.value = event[0].label
-    // }
 
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     setFormData(newFormData)
   }
 
-  useEffect(() => {
-    console.log('FORM DATA', formData)
-  }, [formData])
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    // console.log('EVENT', event.target)
-    // console.log('REPEAT', formData.repeat)
+
 
     try {
       await axios.post('/api/transactions/', formData,
@@ -96,7 +78,6 @@ const TransactionForm = ({ rerender }) => {
 
     } catch (err) {
       console.log(err)
-      // setErrors(err.response.data.message)
     }
 
   }
@@ -125,10 +106,6 @@ const TransactionForm = ({ rerender }) => {
     clearForm()
     setShowModal(false)
   }
-
-  // const handleFocus = (event) => {
-  //   console.log(event)
-  // }
 
 
   const handleClose = () => setShowModal(false)
@@ -168,7 +145,6 @@ const TransactionForm = ({ rerender }) => {
           <>
 
 
-
             <div className="formDiv transactionForm">
               <Container>
 
@@ -198,12 +174,10 @@ const TransactionForm = ({ rerender }) => {
                       <Form.Label>Transaction Type</Form.Label>
                       <Form.Select
                         name="transaction_type"
-                        // initialValue="Select Transaction Type"
                         defaultValue="Outgoing"
                         required
                         onChange={handleChange}
                       >
-                        {/* <option disabled>Select Transaction Type</option> */}
                         {transactionTypes.map((item, index) => {
                           return <option key={index}>{item}</option>
                         })}
@@ -252,28 +226,12 @@ const TransactionForm = ({ rerender }) => {
                     />
                   </Form.Group>
 
-                  {/* 
-            <Form.Group className="mb-3" controlId="recipient_sender">
-              <Form.Label>{formData.transaction_type !== 'Incoming' ? 'Recipient' : 'Sender'}</Form.Label>
-            
-              <Typeahead
-                id="recipient_sender"
-                name="recipient_sender"
-                allowNew
-                newSelectionPrefix="Add a new contact? "
-                options={[]}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                value={formData.recipient_sender}
-                placeholder={formData.transaction_type !== 'Outgoing' ? 'Who sent you money?' : 'Who are you paying?'}
-              />
-            </Form.Group > */}
+    
 
                   <Form.Group as={Col} controlId="labels" className="mb-3">
                     <Form.Label>Label</Form.Label>
                     <Form.Select
                       name="label"
-                      // initialValue="Select Transaction Type"
                       defaultValue="None"
                       required
                       onChange={handleChange}
@@ -302,11 +260,7 @@ const TransactionForm = ({ rerender }) => {
                       name="repeat"
                       type="checkbox"
                       label="Recurring Transaction?"
-                      // value={repeatValue}
-                      // defaultValue={false}
                       onChange={handleChange}
-                    // checked={false}
-                    // onChange={setRepeatStatus(!repeatStatus)}
                     />
                   </Form.Group>
 
@@ -350,7 +304,6 @@ const TransactionForm = ({ rerender }) => {
 
                   <div className="d-grid gap-2 pb-1">
                     <Button variant="outline-secondary" onClick={handleReset}
-                    // onClick={cancelNewTransaction}
                     >
                       Cancel
                     </Button>

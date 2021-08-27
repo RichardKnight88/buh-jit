@@ -14,9 +14,6 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, 
   const [cardHidden, setCardHidden] = useState('')
 
 
-  // console.log('ID', transactionId)
-  // console.log('TRANS DETAIL', showTransactionDetail)
-
   useEffect(() => {
     const accessTransaction = async () => {
       const transactionData = await getIndividualTransaction(transactionId)
@@ -24,12 +21,6 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, 
     }
     accessTransaction()
   }, [rerenderToggle, transactionId])
-
-  // transaction && console.log('ID', transaction)
-
-  // const showDeleteToast = () => setToggleHidden(true)
-  // const hideDeleteToast = () => setToggleHidden(false)
-
 
 
   const hiddenToggles = () => {
@@ -50,11 +41,7 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, 
     }, 300)
     history.push('/dashboard')
     location.pathname
-    // rerenderToggle
   }
-
-
-
 
 
   return (
@@ -88,7 +75,6 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, 
 
                     <OverlayTrigger
                       trigger="click"
-                      onHide={() => console.log('HIDE')}
                       placement="left"
                       overlay={
                         <Popover className="deletePopover" id="popover-basic" >
@@ -96,7 +82,6 @@ const TransactionDetail = ({ handleClose, showTransactionDetail, transactionId, 
                           <Popover.Header as="h3" className="deletePopoverHeader">Are you sure?</Popover.Header>
 
                           <Popover.Body className="deletePopover">
-                            {/* <Button variant="outline-secondary">No</Button> */}
                             <Button
                               variant="outline-danger"
                               onClick={confirmDelete}>Yes</Button>

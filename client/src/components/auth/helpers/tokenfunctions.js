@@ -23,12 +23,8 @@ export const getPayload = () => {
 export const getCurrentUser = async () => {
 
   const payload = getPayload()
-  console.log('PAYLOAD')
 
   if (!payload) return
-
-  // const currentUserId = payload.sub
-  // console.log(currentUserId)
 
   const { data } = await axios.get('/api/auth/profile/',
     {
@@ -37,8 +33,6 @@ export const getCurrentUser = async () => {
       },
     }
   )
-  // console.log('GET REQ', data.transactions.length)
-  // console.log('GET REQ ONLY')
 
   return data
 
@@ -57,7 +51,6 @@ export const getIndividualTransaction = async (transactionId) => {
       }
     )
 
-    console.log('DATA', data)
     return data
 
   } catch (err) {
