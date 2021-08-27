@@ -14,6 +14,8 @@ const LoginForm = () => {
     password: '',
   })
 
+  const [errors, setErrors] = useState(null)
+
   const history = useHistory()
   const location = useLocation()
 
@@ -30,7 +32,7 @@ const LoginForm = () => {
     event.preventDefault()
 
     try {
-      const { data } = await axios.post('/api/auth/login/', formData )
+      const { data } = await axios.post('/api/auth/login/', formData)
       // console.log('DATA', data)
 
       setTokenToLocalStorage(data.token, data.username)
@@ -40,8 +42,8 @@ const LoginForm = () => {
       console.log(data)
 
     } catch (err) {
-      console.log(err.response.statusText)
-      // setErrors(err.response.data.message)
+      console.log(err.response.data)
+      setErrors(err.response.data.detail)
     }
   }
 
@@ -76,6 +78,9 @@ const LoginForm = () => {
           placeholder="Password"
           onChange={handleChange}
           value={formData.password} />
+        <div className="helpDiv">
+          {errors && <p className="help">{errors}</p>}
+        </div>
       </Form.Group>
       <div className="d-grid gap-2">
         <Button variant="outline-primary" type="submit">

@@ -36,9 +36,9 @@ class LoginView(APIView):
         try:
             user_to_login = User.objects.get(email=email)
         except User.DoesNotExist:
-            raise PermissionDenied(detail='Invalid Credentials')
+            raise PermissionDenied(detail='Incorrect username or password')
         if not user_to_login.check_password(password):
-            raise PermissionDenied(detail='Invalid Credentials')
+            raise PermissionDenied(detail='Incorrect username or password')
 
         dt = datetime.now() + timedelta(days=3)
         token = jwt.encode(
