@@ -8,8 +8,14 @@ Buh-jit is a budgeting app that allows you to add transactions and visualise you
 <p align="center" >
  <img width="80%" src="./client/src/images/dashboardScreenshot.png" alt="Bih-Jit Dashboard Screenshot"/>
 </p>
- 
+
 [Buh-jit - Deployed App](https://bit.ly/buh-jit)
+
+Feel free to login with the details below to have access to existing transactions.
+
+username: ```richard@email.com```
+<br>
+password: ```richard1988```
 
 ## Installation
 
