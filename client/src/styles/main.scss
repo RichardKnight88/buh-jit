@@ -15,6 +15,20 @@ body {
   margin-top: 50px;
 }
 
+.helpDiv {
+  min-height: 2.5em;
+  max-height: 3em;
+  display: flex;
+  align-items: center;
+
+  .help {
+    margin-left: 1em;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    color: #e40101;
+}
+}
+
 .homeAlignment {
   height: 90vh;
   .row {

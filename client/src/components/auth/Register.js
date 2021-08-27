@@ -18,6 +18,16 @@ const Register = () => {
     password_confirmation: '',
   })
 
+  const [errors, setErrors] = useState({
+    username: '',
+    email: '',
+    first_name: '',
+    last_name: '',
+    password: '',
+    password_confirmation: '',
+  })
+
+
   const history = useHistory()
 
 
@@ -40,7 +50,17 @@ const Register = () => {
       password_confirmation: '',
     }
 
+    const clearingErrors = {
+      username: '',
+      email: '',
+      first_name: '',
+      last_name: '',
+      password: '',
+      password_confirmation: '',
+    }
+
     setFormData(clearingForm)
+    setErrors(clearingErrors)
   }
 
 
@@ -65,8 +85,7 @@ const Register = () => {
       registrationToast()
 
     } catch (err) {
-      console.log(err)
-      // setErrors(err.response.data.message)
+      setErrors(err.response.data)
     }
   }
 
@@ -97,7 +116,7 @@ const Register = () => {
             <h2>Sign up!</h2>
           </div>
 
-          <Form.Group className="mb-3 pt-4" controlId="formBasicUsername">
+          <Form.Group className="mb-1 pt-4" controlId="formBasicUsername">
             <Form.Label>Create a Username</Form.Label>
             <Form.Control
               type="text"
@@ -107,9 +126,12 @@ const Register = () => {
               value={formData.username}
               required
             />
+            <div className="helpDiv">
+              {errors.username && <p className="help">{errors.username}</p>}
+            </div>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-1" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
@@ -119,9 +141,12 @@ const Register = () => {
               value={formData.email}
               required
             />
+            <div className="helpDiv">
+              {errors.email && <p className="help">{errors.email}</p>}
+            </div>
           </Form.Group>
 
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-1">
             <Form.Label>Your Name</Form.Label>
             <Row>
               <Col>
@@ -147,30 +172,38 @@ const Register = () => {
                 />
               </Col>
             </Row>
+            <div className="helpDiv">
+            </div>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-1" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Must include at least 8 characters"
               onChange={handleChange}
               value={formData.password}
               required
             />
+            <div className="helpDiv">
+              {errors.password && <p className="help">{errors.password}</p>}
+            </div>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPasswordConfirmation">
+          <Form.Group className="mb-1" controlId="formBasicPasswordConfirmation">
             <Form.Label>Password Confirmation</Form.Label>
             <Form.Control
               type="password"
               name="password_confirmation"
-              placeholder="Password Confirmation"
+              placeholder="Re-type Password"
               onChange={handleChange}
               value={formData.password_confirmation}
               required
             />
+            <div className="helpDiv">
+              {errors.password_confirmation && <p className="help">{errors.password_confirmation}</p>}
+            </div>
           </Form.Group>
 
           <div className="d-grid gap-2 pb-4">
